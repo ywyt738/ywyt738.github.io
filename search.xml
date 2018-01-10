@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[skill_stack]]></title>
+    <url>%2F2018%2F01%2F10%2Fskill-stack%2F</url>
+    <content type="text"><![CDATA[技术栈新年开始先埋点坑。 DevOps Errbot 机器人 StackStorm 将操作原子化自由组合的DevOps工具 Rocket.Chat 开源聊天室 Python circus python3下可以用来代替supervisor click 命令行工具 fire 自动生成命令行 pipenv python官方推荐的包、虚拟环境、python版本管理工具]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>DevOps</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2F2017%2F11%2F30%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ywyt738.github.io/"/>
-  <updated>2017-11-30T11:42:42.926Z</updated>
+  <updated>2018-01-10T14:26:36.130Z</updated>
   <id>https://ywyt738.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>skill_stack</title>
+    <link href="https://ywyt738.github.io/2018/01/10/skill-stack/"/>
+    <id>https://ywyt738.github.io/2018/01/10/skill-stack/</id>
+    <published>2018-01-10T13:40:57.000Z</published>
+    <updated>2018-01-10T14:26:36.130Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;技术栈&quot;&gt;&lt;a href=&quot;#技术栈&quot; class=&quot;headerlink&quot; title=&quot;技术栈&quot;&gt;&lt;/a&gt;技术栈&lt;/h2&gt;&lt;p&gt;新年开始先埋点坑。&lt;/p&gt;
+&lt;h3 id=&quot;DevOps&quot;&gt;&lt;a href=&quot;#DevOps&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://ywyt738.github.io/tags/python/"/>
+    
+      <category term="DevOps" scheme="https://ywyt738.github.io/tags/DevOps/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
