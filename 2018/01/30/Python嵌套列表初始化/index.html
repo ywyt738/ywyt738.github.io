@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="python,数据格式," />
 
 
 
@@ -81,16 +81,18 @@
 
 
 
-<meta name="description" content="记录&amp;成长">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ΩmegaPhi&#39;s Blog">
-<meta property="og:url" content="https://ywyt738.github.io/archives/2017/11/index.html">
+<meta name="description" content="始于2048游戏的一个问题在写2048的时候，需要写一个4*4的游戏棋盘。最容易实现的方法就是二维数组，例如用 a[x][y] 来表示一个游戏棋盘的格子。然后用赋值的方法给格子填充数字。当时的实现方法如下： 1234567891011a = [[&apos;_&apos;] * 4 ] * 4# [[&apos;_&a">
+<meta name="keywords" content="python,数据格式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python嵌套列表初始化">
+<meta property="og:url" content="https://ywyt738.github.io/2018/01/30/Python嵌套列表初始化/index.html">
 <meta property="og:site_name" content="ΩmegaPhi&#39;s Blog">
-<meta property="og:description" content="记录&amp;成长">
+<meta property="og:description" content="始于2048游戏的一个问题在写2048的时候，需要写一个4*4的游戏棋盘。最容易实现的方法就是二维数组，例如用 a[x][y] 来表示一个游戏棋盘的格子。然后用赋值的方法给格子填充数字。当时的实现方法如下： 1234567891011a = [[&apos;_&apos;] * 4 ] * 4# [[&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [&apos;_&apos;, &apos;_&apos;, &apos;">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-30T05:49:43.768Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ΩmegaPhi&#39;s Blog">
-<meta name="twitter:description" content="记录&amp;成长">
+<meta name="twitter:title" content="Python嵌套列表初始化">
+<meta name="twitter:description" content="始于2048游戏的一个问题在写2048的时候，需要写一个4*4的游戏棋盘。最容易实现的方法就是二维数组，例如用 a[x][y] 来表示一个游戏棋盘的格子。然后用赋值的方法给格子填充数字。当时的实现方法如下： 1234567891011a = [[&apos;_&apos;] * 4 ] * 4# [[&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [&apos;_&apos;, &apos;_&apos;, &apos;">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://ywyt738.github.io/archives/2017/11/"/>
+  <link rel="canonical" href="https://ywyt738.github.io/2018/01/30/Python嵌套列表初始化/"/>
 
 
 
 
 
-  <title>归档 | ΩmegaPhi's Blog</title>
+  <title>Python嵌套列表初始化 | ΩmegaPhi's Blog</title>
   
 
 
@@ -155,7 +157,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -283,74 +285,179 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 3 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ywyt738.github.io/2018/01/30/Python嵌套列表初始化/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ΩmegaPhi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ΩmegaPhi's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/11/30/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Python嵌套列表初始化</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-30T19:42:42+08:00"
-              content="2017-11-30" >
-          11-30
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-30T09:42:11+08:00">
+                2018-01-30
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/30/Python嵌套列表初始化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2018/01/30/Python嵌套列表初始化/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <h3 id="始于2048游戏的一个问题"><a href="#始于2048游戏的一个问题" class="headerlink" title="始于2048游戏的一个问题"></a>始于2048游戏的一个问题</h3><p>在写2048的时候，需要写一个4*4的游戏棋盘。最容易实现的方法就是二维数组，例如用 <code>a[x][y]</code> 来表示一个游戏棋盘的格子。然后用赋值的方法给格子填充数字。当时的实现方法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = [[<span class="string">'_'</span>] * <span class="number">4</span> ] * <span class="number">4</span></span><br><span class="line"><span class="comment"># [['_', '_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_', '_']]</span></span><br><span class="line"></span><br><span class="line">a[<span class="number">1</span>][<span class="number">2</span>] = <span class="string">'X'</span>    <span class="comment"># 2行3列填充'X'</span></span><br><span class="line"><span class="comment"># [['_', '_', 'X', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', 'X', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', 'X', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', 'X', '_']]</span></span><br></pre></td></tr></table></figure>
+<h3 id="流畅的Python"><a href="#流畅的Python" class="headerlink" title="流畅的Python"></a>流畅的Python</h3><p>由于仅仅只做了一步赋值动作，所以怎么想都没想明白，抱着侥幸的心里查看了一下《流畅的python》，果然发现了案例，描述的问题一模一样。书中给出的方法是（书中是3*3的棋盘）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = [[<span class="string">'_'</span>] * <span class="number">3</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>)]</span><br><span class="line"><span class="comment"># [['_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_']]</span></span><br><span class="line"></span><br><span class="line">a[<span class="number">1</span>][<span class="number">2</span>] = <span class="string">'X'</span>    <span class="comment"># 2行3列填充'X'</span></span><br><span class="line"><span class="comment"># [['_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', 'X'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_']]</span></span><br></pre></td></tr></table></figure>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>通过<code>[[&#39;_&#39;] * 4 ] * 4</code>生成的列表中的元素其实是指向同一列表的三个list，他们的id是相同的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">10</span>]: a = [[<span class="string">'_'</span>] * <span class="number">4</span> ] * <span class="number">4</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: id(a[<span class="number">0</span>])</span><br><span class="line">Out[<span class="number">11</span>]: <span class="number">67027552</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">12</span>]: id(a[<span class="number">1</span>])</span><br><span class="line">Out[<span class="number">12</span>]: <span class="number">67027552</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">13</span>]: id(a[<span class="number">2</span>])</span><br><span class="line">Out[<span class="number">13</span>]: <span class="number">67027552</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">14</span>]: id(a[<span class="number">3</span>])</span><br><span class="line">Out[<span class="number">14</span>]: <span class="number">67027552</span></span><br></pre></td></tr></table></figure>
+<p>所以出现了上面的情况，为其中一个元素赋值的时候同时改变了其他的list。</p>
+<p>当然也可以用以下方法生成list：</p>
+<pre><code class="python">b = []
+<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>):
+    row = [<span class="string">'_'</span>] * <span class="number">4</span>
+    b.append(row)
+</code></pre>
+<p>for循环中每次循环会产生一个新的row。</p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/数据格式/" rel="tag"># 数据格式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/10/skill-stack/" rel="next" title="skill_stack">
+                <i class="fa fa-chevron-left"></i> skill_stack
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -358,6 +465,12 @@
 
 
           
+  
+    <div class="comments" id="comments">
+      <div id="hypercomments_widget"></div>
+    </div>
+  
+
 
         </div>
         
@@ -378,8 +491,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -451,6 +573,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#始于2048游戏的一个问题"><span class="nav-number">1.</span> <span class="nav-text">始于2048游戏的一个问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流畅的Python"><span class="nav-number">2.</span> <span class="nav-text">流畅的Python</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原因"><span class="nav-number">3.</span> <span class="nav-text">原因</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -590,6 +728,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -613,6 +755,8 @@
 
 		_hcwp.push({widget:"Bloggerstream", widget_id: 98475, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
+		
+		_hcwp.push({widget:"Stream", widget_id: 98475, xid: "2018/01/30/Python嵌套列表初始化/"});
 		
 
 		(function() {
