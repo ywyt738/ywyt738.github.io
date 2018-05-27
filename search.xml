@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[写个过滤器]]></title>
     <url>%2F2018%2F05%2F27%2F%E5%86%99%E4%B8%AA%E8%BF%87%E6%BB%A4%E5%99%A8%2F</url>
-    <content type="text"><![CDATA[类的集成写个过滤器基类12345class Filter: def __init__(self): self._filter_list = [] def filter(self, seq): return [i for i in seq if not i in self._filter_list] 这个类没有办法过滤任何东西，下面来做一个能用的过滤器。 制造一个有用的过滤器新建一个类继承于刚刚的Filter，在__init__方法中加入过滤列表。 1234567class Dollar_Filter(Filter): def __init__(self): self._filter_list = ['$']&gt;&gt;&gt;dollar_filter = Dollar_Filter()&gt;&gt;&gt;dollar_filter.filter([1, 2, 3, 'asdf', '$', 'sx', '%', 'ff', '$'])[1, 2, 3, 'asdf', '$', 'sx', '%', 'ff', '$'] 抽象思维在面向对象和函数编程中抽象思维十分重要，它能让代码复用性更高、耦合度更低。 参考上述例子来自于《Python基础教程（第2版）》]]></content>
+    <content type="text"><![CDATA[类的继承写个过滤器基类12345class Filter: def __init__(self): self._filter_list = [] def filter(self, seq): return [i for i in seq if not i in self._filter_list] 这个类没有办法过滤任何东西，下面来做一个能用的过滤器。 制造一个有用的过滤器新建一个类继承于刚刚的Filter，在__init__方法中加入过滤列表。 1234567class Dollar_Filter(Filter): def __init__(self): self._filter_list = ['$']&gt;&gt;&gt;dollar_filter = Dollar_Filter()&gt;&gt;&gt;dollar_filter.filter([1, 2, 3, 'asdf', '$', 'sx', '%', 'ff', '$'])[1, 2, 3, 'asdf', '$', 'sx', '%', 'ff', '$'] 抽象思维在面向对象和函数编程中抽象思维十分重要，它能让代码复用性更高、耦合度更低。 参考上述例子来自于《Python基础教程（第2版）》]]></content>
       <tags>
         <tag>python</tag>
       </tags>
