@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ywyt738.github.io/"/>
-  <updated>2018-05-27T09:10:41.292Z</updated>
+  <updated>2018-12-19T02:34:19.574Z</updated>
   <id>https://ywyt738.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LVM逻辑卷管理器</title>
+    <link href="https://ywyt738.github.io/2018/12/19/LVM%E9%80%BB%E8%BE%91%E5%8D%B7%E7%AE%A1%E7%90%86%E5%99%A8/"/>
+    <id>https://ywyt738.github.io/2018/12/19/LVM逻辑卷管理器/</id>
+    <published>2018-12-19T02:16:14.000Z</published>
+    <updated>2018-12-19T02:34:19.574Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot; title=&quot;概要&quot;&gt;&lt;/a&gt;概要&lt;/h1&gt;&lt;p&gt;通过整合PV(Physical Volume)成VG(Volume Group)，再从VG中分割出LV(Logical
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>写个过滤器</title>

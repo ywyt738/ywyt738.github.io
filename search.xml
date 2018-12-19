@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LVM逻辑卷管理器]]></title>
+    <url>%2F2018%2F12%2F19%2FLVM%E9%80%BB%E8%BE%91%E5%8D%B7%E7%AE%A1%E7%90%86%E5%99%A8%2F</url>
+    <content type="text"><![CDATA[概要通过整合PV(Physical Volume)成VG(Volume Group)，再从VG中分割出LV(Logical Volume)，挂在LV来使用。 基础操作 创建pv 1pvcreate /dev/sdc 将pv加入vg中 12# storage是vg卷名称vgcreate storage /dev/sdc 切割出lv 1234567# -n lv名称# 在对逻辑卷进行切割时有两种计量单位。# 第一种是以容量为单位，所使用的参数为-L。# 例如，使用-L 150M生成一个大小为150MB的逻辑卷。# 另外一种是以基本单元的个数为单位，所使用的参数为-l。每个基本单元的大小默认为4MB。# 例如，使用-l 37可以生成一个大小为37×4MB=148MB的逻辑卷。lvcreate -n vo -l 37 storage 格式化、挂载 123mkfs.ext4 /dev/storage/vomkdir /datamount /dev/storage/vo /data 写入配置文件，永久生效 1echo "/dev/storage/vo /data ext4 defaults 0 0" &gt;&gt; /etc/fstab 基础命令 功能/命令 物理卷管理 卷组管理 逻辑卷管理 扫描 pvscan vgscan lvscan 建立 pvcreate vgcreate lvcreate 显示 pvdisplay vgdisplay lvdisplay 删除 pvremove vgremove lvremove 扩展 vgextend lvextend 缩小 vgreduce lvreduce 参考资料]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[写个过滤器]]></title>
     <url>%2F2018%2F05%2F27%2F%E5%86%99%E4%B8%AA%E8%BF%87%E6%BB%A4%E5%99%A8%2F</url>
     <content type="text"><![CDATA[类的继承写个过滤器基类12345class Filter: def __init__(self): self._filter_list = [] def filter(self, seq): return [i for i in seq if not i in self._filter_list] 这个类没有办法过滤任何东西，下面来做一个能用的过滤器。 制造一个有用的过滤器新建一个类继承于刚刚的Filter，在__init__方法中加入过滤列表。 1234567class Dollar_Filter(Filter): def __init__(self): self._filter_list = ['$']&gt;&gt;&gt;dollar_filter = Dollar_Filter()&gt;&gt;&gt;dollar_filter.filter([1, 2, 3, 'asdf', '$', 'sx', '%', 'ff', '$'])[1, 2, 3, 'asdf', '$', 'sx', '%', 'ff', '$'] 抽象思维在面向对象和函数编程中抽象思维十分重要，它能让代码复用性更高、耦合度更低。 参考上述例子来自于《Python基础教程（第2版）》]]></content>

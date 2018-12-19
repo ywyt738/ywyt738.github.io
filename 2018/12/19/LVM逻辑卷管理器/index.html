@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="python,数据格式," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -81,18 +81,19 @@
 
 
 
-<meta name="description" content="始于2048游戏的一个问题在写2048的时候，需要写一个4*4的游戏棋盘。最容易实现的方法就是二维数组，例如用 a[x][y] 来表示一个游戏棋盘的格子。然后用赋值的方法给格子填充数字。当时的实现方法如下： 1234567891011a = [[&apos;_&apos;] * 4 ] * 4# [[&apos;_&a">
-<meta name="keywords" content="python,数据格式">
+<meta name="description" content="概要通过整合PV(Physical Volume)成VG(Volume Group)，再从VG中分割出LV(Logical Volume)，挂在LV来使用。  基础操作 创建pv  1pvcreate /dev/sdc  将pv加入vg中  12# storage是vg卷名称vgcreate storage /dev/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python嵌套列表初始化">
-<meta property="og:url" content="https://ywyt738.github.io/2018/01/30/Python嵌套列表初始化/index.html">
+<meta property="og:title" content="LVM逻辑卷管理器">
+<meta property="og:url" content="https://ywyt738.github.io/2018/12/19/LVM逻辑卷管理器/index.html">
 <meta property="og:site_name" content="ΩmegaPhi&#39;s Blog">
-<meta property="og:description" content="始于2048游戏的一个问题在写2048的时候，需要写一个4*4的游戏棋盘。最容易实现的方法就是二维数组，例如用 a[x][y] 来表示一个游戏棋盘的格子。然后用赋值的方法给格子填充数字。当时的实现方法如下： 1234567891011a = [[&apos;_&apos;] * 4 ] * 4# [[&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [&apos;_&apos;, &apos;_&apos;, &apos;">
+<meta property="og:description" content="概要通过整合PV(Physical Volume)成VG(Volume Group)，再从VG中分割出LV(Logical Volume)，挂在LV来使用。  基础操作 创建pv  1pvcreate /dev/sdc  将pv加入vg中  12# storage是vg卷名称vgcreate storage /dev/sdc  切割出lv  1234567# -n lv名称# 在对逻辑卷进行切割时">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-30T05:49:43.769Z">
+<meta property="og:image" content="https://ywyt738.github.io/2018/12/19/LVM逻辑卷管理器/逻辑卷.png">
+<meta property="og:updated_time" content="2018-12-19T02:34:19.574Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python嵌套列表初始化">
-<meta name="twitter:description" content="始于2048游戏的一个问题在写2048的时候，需要写一个4*4的游戏棋盘。最容易实现的方法就是二维数组，例如用 a[x][y] 来表示一个游戏棋盘的格子。然后用赋值的方法给格子填充数字。当时的实现方法如下： 1234567891011a = [[&apos;_&apos;] * 4 ] * 4# [[&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [&apos;_&apos;, &apos;_&apos;, &apos;">
+<meta name="twitter:title" content="LVM逻辑卷管理器">
+<meta name="twitter:description" content="概要通过整合PV(Physical Volume)成VG(Volume Group)，再从VG中分割出LV(Logical Volume)，挂在LV来使用。  基础操作 创建pv  1pvcreate /dev/sdc  将pv加入vg中  12# storage是vg卷名称vgcreate storage /dev/sdc  切割出lv  1234567# -n lv名称# 在对逻辑卷进行切割时">
+<meta name="twitter:image" content="https://ywyt738.github.io/2018/12/19/LVM逻辑卷管理器/逻辑卷.png">
 
 
 
@@ -122,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="https://ywyt738.github.io/2018/01/30/Python嵌套列表初始化/"/>
+  <link rel="canonical" href="https://ywyt738.github.io/2018/12/19/LVM逻辑卷管理器/"/>
 
 
 
 
 
-  <title>Python嵌套列表初始化 | ΩmegaPhi's Blog</title>
+  <title>LVM逻辑卷管理器 | ΩmegaPhi's Blog</title>
   
 
 
@@ -299,7 +300,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ywyt738.github.io/2018/01/30/Python嵌套列表初始化/">
+    <link itemprop="mainEntityOfPage" href="https://ywyt738.github.io/2018/12/19/LVM逻辑卷管理器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ΩmegaPhi">
@@ -316,7 +317,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python嵌套列表初始化</h1>
+          <h1 class="post-title" itemprop="name headline">LVM逻辑卷管理器</h1>
         
 
         <div class="post-meta">
@@ -328,8 +329,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-30T09:42:11+08:00">
-                2018-01-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-19T10:16:14+08:00">
+                2018-12-19
               </time>
             
 
@@ -348,8 +349,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/01/30/Python嵌套列表初始化/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2018/01/30/Python嵌套列表初始化/" itemprop="commentsCount"></span>
+                <a href="/2018/12/19/LVM逻辑卷管理器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2018/12/19/LVM逻辑卷管理器/" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -383,20 +384,74 @@
       
 
       
-        <h3 id="始于2048游戏的一个问题"><a href="#始于2048游戏的一个问题" class="headerlink" title="始于2048游戏的一个问题"></a>始于2048游戏的一个问题</h3><p>在写2048的时候，需要写一个4*4的游戏棋盘。最容易实现的方法就是二维数组，例如用 <code>a[x][y]</code> 来表示一个游戏棋盘的格子。然后用赋值的方法给格子填充数字。当时的实现方法如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = [[<span class="string">'_'</span>] * <span class="number">4</span> ] * <span class="number">4</span></span><br><span class="line"><span class="comment"># [['_', '_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_', '_']]</span></span><br><span class="line"></span><br><span class="line">a[<span class="number">1</span>][<span class="number">2</span>] = <span class="string">'X'</span>    <span class="comment"># 2行3列填充'X'</span></span><br><span class="line"><span class="comment"># [['_', '_', 'X', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', 'X', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', 'X', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', 'X', '_']]</span></span><br></pre></td></tr></table></figure>
-<h3 id="流畅的Python"><a href="#流畅的Python" class="headerlink" title="流畅的Python"></a>流畅的Python</h3><p>由于仅仅只做了一步赋值动作，所以怎么想都没想明白，抱着侥幸的心里查看了一下《流畅的python》，果然发现了案例，描述的问题一模一样。书中给出的方法是（书中是3*3的棋盘）：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = [[<span class="string">'_'</span>] * <span class="number">3</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>)]</span><br><span class="line"><span class="comment"># [['_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_']]</span></span><br><span class="line"></span><br><span class="line">a[<span class="number">1</span>][<span class="number">2</span>] = <span class="string">'X'</span>    <span class="comment"># 2行3列填充'X'</span></span><br><span class="line"><span class="comment"># [['_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', 'X'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_']]</span></span><br></pre></td></tr></table></figure>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>通过<code>[[&#39;_&#39;] * 4 ] * 4</code>生成的列表中的元素其实是指向同一列表的三个list，他们的id是相同的</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">10</span>]: a = [[<span class="string">'_'</span>] * <span class="number">4</span> ] * <span class="number">4</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: id(a[<span class="number">0</span>])</span><br><span class="line">Out[<span class="number">11</span>]: <span class="number">67027552</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">12</span>]: id(a[<span class="number">1</span>])</span><br><span class="line">Out[<span class="number">12</span>]: <span class="number">67027552</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">13</span>]: id(a[<span class="number">2</span>])</span><br><span class="line">Out[<span class="number">13</span>]: <span class="number">67027552</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">14</span>]: id(a[<span class="number">3</span>])</span><br><span class="line">Out[<span class="number">14</span>]: <span class="number">67027552</span></span><br></pre></td></tr></table></figure>
-<p>所以出现了上面的情况，为其中一个元素赋值的时候同时改变了其他的list。</p>
-<p>当然也可以用以下方法生成list：</p>
-<pre><code class="python">b = []
-<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>):
-    row = [<span class="string">'_'</span>] * <span class="number">4</span>
-    b.append(row)
-</code></pre>
-<p>for循环中每次循环会产生一个新的row。</p>
+        <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>通过整合PV(Physical Volume)成VG(Volume Group)，再从VG中分割出LV(Logical Volume)，挂在LV来使用。</p>
+<p><img src="/2018/12/19/LVM逻辑卷管理器/逻辑卷.png" alt="你想要输入的替代文字"></p>
+<h1 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h1><ol>
+<li><p>创建pv</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pvcreate /dev/sdc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将pv加入vg中</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># storage是vg卷名称</span></span><br><span class="line">vgcreate storage /dev/sdc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>切割出lv</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -n lv名称</span></span><br><span class="line"><span class="comment"># 在对逻辑卷进行切割时有两种计量单位。</span></span><br><span class="line"><span class="comment"># 第一种是以容量为单位，所使用的参数为-L。</span></span><br><span class="line"><span class="comment"># 例如，使用-L 150M生成一个大小为150MB的逻辑卷。</span></span><br><span class="line"><span class="comment"># 另外一种是以基本单元的个数为单位，所使用的参数为-l。每个基本单元的大小默认为4MB。</span></span><br><span class="line"><span class="comment"># 例如，使用-l 37可以生成一个大小为37×4MB=148MB的逻辑卷。</span></span><br><span class="line">lvcreate -n vo -l 37 storage</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>格式化、挂载</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/storage/vo</span><br><span class="line">mkdir /data</span><br><span class="line">mount /dev/storage/vo /data</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>写入配置文件，永久生效</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"/dev/storage/vo /data ext4 defaults 0 0"</span> &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h1><table>
+<thead>
+<tr>
+<th>功能/命令</th>
+<th>物理卷管理</th>
+<th>卷组管理</th>
+<th>逻辑卷管理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>扫描</td>
+<td>pvscan</td>
+<td>vgscan</td>
+<td>lvscan</td>
+</tr>
+<tr>
+<td>建立</td>
+<td>pvcreate</td>
+<td>vgcreate</td>
+<td>lvcreate</td>
+</tr>
+<tr>
+<td>显示</td>
+<td>pvdisplay</td>
+<td>vgdisplay</td>
+<td>lvdisplay</td>
+</tr>
+<tr>
+<td>删除</td>
+<td>pvremove</td>
+<td>vgremove</td>
+<td>lvremove</td>
+</tr>
+<tr>
+<td>扩展</td>
+<td></td>
+<td>vgextend</td>
+<td>lvextend</td>
+</tr>
+<tr>
+<td>缩小</td>
+<td></td>
+<td>vgreduce</td>
+<td>lvreduce</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://www.linuxprobe.com/chapter-07.html#72_LVM" target="_blank" rel="noopener">参考资料</a></p>
 
       
     </div>
@@ -412,14 +467,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/python/" rel="tag"># python</a>
-          
-            <a href="/tags/数据格式/" rel="tag"># 数据格式</a>
-          
-        </div>
-      
 
       
       
@@ -429,8 +476,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/10/skill-stack/" rel="next" title="skill_stack">
-                <i class="fa fa-chevron-left"></i> skill_stack
+              <a href="/2018/05/27/写个过滤器/" rel="next" title="写个过滤器">
+                <i class="fa fa-chevron-left"></i> 写个过滤器
               </a>
             
           </div>
@@ -438,10 +485,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/27/写个过滤器/" rel="prev" title="写个过滤器">
-                写个过滤器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -587,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#始于2048游戏的一个问题"><span class="nav-number">1.</span> <span class="nav-text">始于2048游戏的一个问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流畅的Python"><span class="nav-number">2.</span> <span class="nav-text">流畅的Python</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原因"><span class="nav-number">3.</span> <span class="nav-text">原因</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概要"><span class="nav-number">1.</span> <span class="nav-text">概要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础操作"><span class="nav-number">2.</span> <span class="nav-text">基础操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础命令"><span class="nav-number">3.</span> <span class="nav-text">基础命令</span></a></li></ol></div>
             
 
           </div>
@@ -760,7 +803,7 @@
 		_hcwp.push({widget:"Bloggerstream", widget_id: 98475, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 98475, xid: "2018/01/30/Python嵌套列表初始化/"});
+		_hcwp.push({widget:"Stream", widget_id: 98475, xid: "2018/12/19/LVM逻辑卷管理器/"});
 		
 
 		(function() {
