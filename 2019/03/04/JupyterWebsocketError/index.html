@@ -96,18 +96,17 @@
 
 
 
-  <meta name="description" content="类的继承写个过滤器基类12345class Filter:    def __init__(self):        self._filter_list = []    def filter(self, seq):        return [i for i in seq if not i in self._fil">
-<meta name="keywords" content="python">
+  <meta name="description" content="Jupyter启动时候websocket出现错误报错如下: 12c:\users\xxx\desktop\my-test-project\venv\lib\site-packages\notebook\base\zmqhandlers.py:284: RuntimeWarning: coroutine &apos;We">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写个过滤器">
-<meta property="og:url" content="https://ywyt738.github.io/2018/05/27/写个过滤器/index.html">
+<meta property="og:title" content="JupyterWebsocketError">
+<meta property="og:url" content="https://ywyt738.github.io/2019/03/04/JupyterWebsocketError/index.html">
 <meta property="og:site_name" content="ΩmegaPhi&#39;s Blog">
-<meta property="og:description" content="类的继承写个过滤器基类12345class Filter:    def __init__(self):        self._filter_list = []    def filter(self, seq):        return [i for i in seq if not i in self._filter_list] 这个类没有办法过滤任何东西，下面来做一个能用的过滤器。 制造">
+<meta property="og:description" content="Jupyter启动时候websocket出现错误报错如下: 12c:\users\xxx\desktop\my-test-project\venv\lib\site-packages\notebook\base\zmqhandlers.py:284: RuntimeWarning: coroutine &apos;WebSocketHandler.get&apos; was never awaited  super(">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-27T09:10:41.292Z">
+<meta property="og:updated_time" content="2019-03-04T06:57:18.346Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="写个过滤器">
-<meta name="twitter:description" content="类的继承写个过滤器基类12345class Filter:    def __init__(self):        self._filter_list = []    def filter(self, seq):        return [i for i in seq if not i in self._filter_list] 这个类没有办法过滤任何东西，下面来做一个能用的过滤器。 制造">
+<meta name="twitter:title" content="JupyterWebsocketError">
+<meta name="twitter:description" content="Jupyter启动时候websocket出现错误报错如下: 12c:\users\xxx\desktop\my-test-project\venv\lib\site-packages\notebook\base\zmqhandlers.py:284: RuntimeWarning: coroutine &apos;WebSocketHandler.get&apos; was never awaited  super(">
 
 
 
@@ -116,7 +115,7 @@
 
 
 
-  <link rel="canonical" href="https://ywyt738.github.io/2018/05/27/写个过滤器/"/>
+  <link rel="canonical" href="https://ywyt738.github.io/2019/03/04/JupyterWebsocketError/"/>
 
 
 
@@ -126,7 +125,7 @@
   };
 </script>
 
-  <title>写个过滤器 | ΩmegaPhi's Blog</title>
+  <title>JupyterWebsocketError | ΩmegaPhi's Blog</title>
   
 
 
@@ -325,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ywyt738.github.io/2018/05/27/写个过滤器/"/>
+    <link itemprop="mainEntityOfPage" href="https://ywyt738.github.io/2019/03/04/JupyterWebsocketError/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ΩmegaPhi"/>
@@ -342,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">写个过滤器
+          <h1 class="post-title" itemprop="name headline">JupyterWebsocketError
 
               
             
@@ -368,7 +367,7 @@
                 
               
 
-              <time title="创建时间：2018-05-27 16:31:32 / 修改时间：17:10:41" itemprop="dateCreated datePublished" datetime="2018-05-27T16:31:32+08:00">2018-05-27</time>
+              <time title="创建时间：2019-03-04 14:51:19 / 修改时间：14:57:18" itemprop="dateCreated datePublished" datetime="2019-03-04T14:51:19+08:00">2019-03-04</time>
             
 
             
@@ -415,12 +414,11 @@
       
 
       
-        <h2 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h2><h3 id="写个过滤器基类"><a href="#写个过滤器基类" class="headerlink" title="写个过滤器基类"></a>写个过滤器基类</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Filter</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._filter_list = []</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">filter</span><span class="params">(self, seq)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> [i <span class="keyword">for</span> i <span class="keyword">in</span> seq <span class="keyword">if</span> <span class="keyword">not</span> i <span class="keyword">in</span> self._filter_list]</span><br></pre></td></tr></table></figure>
-<p>这个类没有办法过滤任何东西，下面来做一个能用的过滤器。</p>
-<h3 id="制造一个有用的过滤器"><a href="#制造一个有用的过滤器" class="headerlink" title="制造一个有用的过滤器"></a>制造一个有用的过滤器</h3><p>新建一个类继承于刚刚的<code>Filter</code>，在<code>__init__</code>方法中加入过滤列表。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dollar_Filter</span><span class="params">(Filter)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._filter_list = [<span class="string">'$'</span>]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;dollar_filter = Dollar_Filter()</span><br><span class="line">&gt;&gt;&gt;dollar_filter.filter([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">'asdf'</span>, <span class="string">'$'</span>, <span class="string">'sx'</span>, <span class="string">'%'</span>, <span class="string">'ff'</span>, <span class="string">'$'</span>])</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">'asdf'</span>, <span class="string">'$'</span>, <span class="string">'sx'</span>, <span class="string">'%'</span>, <span class="string">'ff'</span>, <span class="string">'$'</span>]</span><br></pre></td></tr></table></figure>
-<h2 id="抽象思维"><a href="#抽象思维" class="headerlink" title="抽象思维"></a>抽象思维</h2><p>在面向对象和函数编程中抽象思维十分重要，它能让代码复用性更高、耦合度更低。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>上述例子来自于<a href="https://www.amazon.cn/dp/B00KAFX65Q/ref=sr_1_2?ie=UTF8&amp;qid=1527411915&amp;sr=8-2&amp;keywords=python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B" target="_blank" rel="noopener">《Python基础教程（第2版）》</a></p>
+        <h1 id="Jupyter启动时候websocket出现错误"><a href="#Jupyter启动时候websocket出现错误" class="headerlink" title="Jupyter启动时候websocket出现错误"></a>Jupyter启动时候websocket出现错误</h1><p>报错如下:</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c:\users\xxx\desktop\my-test-project\venv\lib\site-packages\notebook\base\zmqhandlers.py:<span class="number">284</span>: RuntimeWarning: coroutine <span class="string">'WebSocketHandler.get'</span> was never awaited</span><br><span class="line">  super(AuthenticatedZMQStreamHandler, self).get(*args, **kwargs)</span><br></pre></td></tr></table></figure>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>Uninstall tornado 6 and reinstall tornado 5.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 uninstall tornado</span><br><span class="line">sudo pip3 install tornado==5.1.1</span><br></pre></td></tr></table></figure>
+<p><a href="https://stackoverflow.com/questions/54963043/jupyter-notebook-no-connection-to-server-because-websocket-connection-fails?r=SearchResults" target="_blank" rel="noopener">Stackoverflow原帖</a></p>
 
       
     </div>
@@ -442,12 +440,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/python/" rel="tag"># python</a>
-          
-        </div>
-      
 
       
       
@@ -457,8 +449,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/30/Python嵌套列表初始化/" rel="next" title="Python嵌套列表初始化">
-                <i class="fa fa-chevron-left"></i> Python嵌套列表初始化
+              <a href="/2018/12/19/LVM逻辑卷管理器/" rel="next" title="LVM逻辑卷管理器">
+                <i class="fa fa-chevron-left"></i> LVM逻辑卷管理器
               </a>
             
           </div>
@@ -466,10 +458,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/19/LVM逻辑卷管理器/" rel="prev" title="LVM逻辑卷管理器">
-                LVM逻辑卷管理器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -622,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类的继承"><span class="nav-number">1.</span> <span class="nav-text">类的继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#写个过滤器基类"><span class="nav-number">1.1.</span> <span class="nav-text">写个过滤器基类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#制造一个有用的过滤器"><span class="nav-number">1.2.</span> <span class="nav-text">制造一个有用的过滤器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象思维"><span class="nav-number">2.</span> <span class="nav-text">抽象思维</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jupyter启动时候websocket出现错误"><span class="nav-number">1.</span> <span class="nav-text">Jupyter启动时候websocket出现错误</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法"><span class="nav-number">1.1.</span> <span class="nav-text">解决方法</span></a></li></ol></li></ol></div>
             
 
           </div>
