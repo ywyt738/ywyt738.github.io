@@ -30,7 +30,7 @@
 
 
 
-
+  <meta name="google-site-verification" content="vP9aas7emOLDFrM8GHbGmqOxMIUf9rVEDByE0wujlS4"/>
 
 
 
@@ -48,19 +48,19 @@
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
 
-<link rel="stylesheet" href="/css/main.css?v=7.0.0"/>
+<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
 
 
 
@@ -73,8 +73,10 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    version: '7.0.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -96,18 +98,18 @@
 
 
 
-  <meta name="description" content="装饰器的用途装饰器的主要作用在于对现有方法、函数进行一定的扩展，简单的说就是在原有函数、方法调用前、后去添加一些额外的功能。至于更高层次的用法，我们就不深讨论了。今天只说一些简单的。 结论先出结论，装饰器的写法是有一定规律的，可以按照以下 公式 来套用。 1234567891011121314from functool">
+  <meta name="description" content="装饰器的用途装饰器的主要作用在于对现有方法、函数进行一定的扩展，简单的说就是在原有函数、方法调用前、后去添加一些额外的功能。至于更高层次的用法，我们就不深讨论了。今天只说一些简单的。 结论先出结论，装饰器的写法是有一定规律的，可以按照以下 公式 来套用。 from functools import wrapsdef d">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="写一个python装饰器">
 <meta property="og:url" content="https://ywyt738.github.io/2019/04/28/写一个python装饰器/index.html">
 <meta property="og:site_name" content="ΩmegaPhi&#39;s Blog">
-<meta property="og:description" content="装饰器的用途装饰器的主要作用在于对现有方法、函数进行一定的扩展，简单的说就是在原有函数、方法调用前、后去添加一些额外的功能。至于更高层次的用法，我们就不深讨论了。今天只说一些简单的。 结论先出结论，装饰器的写法是有一定规律的，可以按照以下 公式 来套用。 1234567891011121314from functools import wrapsdef decorate(func):    @wr">
+<meta property="og:description" content="装饰器的用途装饰器的主要作用在于对现有方法、函数进行一定的扩展，简单的说就是在原有函数、方法调用前、后去添加一些额外的功能。至于更高层次的用法，我们就不深讨论了。今天只说一些简单的。 结论先出结论，装饰器的写法是有一定规律的，可以按照以下 公式 来套用。 from functools import wrapsdef decorate(func):    @wraps(func)    def wr">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-05-06T07:06:47.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="写一个python装饰器">
-<meta name="twitter:description" content="装饰器的用途装饰器的主要作用在于对现有方法、函数进行一定的扩展，简单的说就是在原有函数、方法调用前、后去添加一些额外的功能。至于更高层次的用法，我们就不深讨论了。今天只说一些简单的。 结论先出结论，装饰器的写法是有一定规律的，可以按照以下 公式 来套用。 1234567891011121314from functools import wrapsdef decorate(func):    @wr">
+<meta name="twitter:description" content="装饰器的用途装饰器的主要作用在于对现有方法、函数进行一定的扩展，简单的说就是在原有函数、方法调用前、后去添加一些额外的功能。至于更高层次的用法，我们就不深讨论了。今天只说一些简单的。 结论先出结论，装饰器的写法是有一定规律的，可以按照以下 公式 来套用。 from functools import wrapsdef decorate(func):    @wraps(func)    def wr">
 
 
 
@@ -115,7 +117,8 @@
 
 
 
-
+  
+  
   <link rel="canonical" href="https://ywyt738.github.io/2019/04/28/写一个python装饰器/"/>
 
 
@@ -319,6 +322,8 @@
   
 
   
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -414,14 +419,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
 
           
 
@@ -442,36 +439,36 @@
       
         <h1 id="装饰器的用途"><a href="#装饰器的用途" class="headerlink" title="装饰器的用途"></a>装饰器的用途</h1><p>装饰器的主要作用在于对现有方法、函数进行一定的扩展，简单的说就是在原有函数、方法调用前、后去添加一些额外的功能。<br>至于更高层次的用法，我们就不深讨论了。今天只说一些简单的。</p>
 <h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>先出结论，装饰器的写法是有一定规律的，可以按照以下 <em>公式</em> 来套用。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorate</span><span class="params">(func)</span>:</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @wraps(func)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">        <span class="comment"># func调用前扩展功能</span></span><br><span class="line">        <span class="comment"># ...</span></span><br><span class="line">        _r = func(*args, **kwargs)</span><br><span class="line">        <span class="comment"># func调用后扩展功能...</span></span><br><span class="line">        <span class="comment"># ...</span></span><br><span class="line">        <span class="keyword">return</span> _r</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br></pre></td></tr></table></figure>
-<p>以上就是一个不带参数装饰器的套路写法。<br><a id="more"></a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorate</span><span class="params">(*decorate_args, **decorate_kwargs)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">real_decorate</span><span class="params">(func)</span>:</span></span><br><span class="line"></span><br><span class="line"><span class="meta">        @wraps(func)</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            <span class="comment"># *decorate_args, **decorate_kwargs可以在这里直接使用</span></span><br><span class="line">            <span class="comment"># func调用前功能</span></span><br><span class="line">            <span class="comment"># ...</span></span><br><span class="line">            _r = func(*args, **kwargs)</span><br><span class="line">            <span class="comment"># func调用后功能...</span></span><br><span class="line">            <span class="comment"># ...</span></span><br><span class="line">            <span class="keyword">return</span> _r</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> real_decorate</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorate</span><span class="params">(func)</span>:</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @wraps(func)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">        <span class="comment"># func调用前扩展功能</span></span><br><span class="line">        <span class="comment"># ...</span></span><br><span class="line">        _r = func(*args, **kwargs)</span><br><span class="line">        <span class="comment"># func调用后扩展功能...</span></span><br><span class="line">        <span class="comment"># ...</span></span><br><span class="line">        <span class="keyword">return</span> _r</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br></pre></td></tr></table></figure>
+<p>以上就是一个不带参数装饰器的套路写法。<br><a id="more"></a><br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorate</span><span class="params">(*decorate_args, **decorate_kwargs)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">real_decorate</span><span class="params">(func)</span>:</span></span><br><span class="line"></span><br><span class="line"><span class="meta">        @wraps(func)</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            <span class="comment"># *decorate_args, **decorate_kwargs可以在这里直接使用</span></span><br><span class="line">            <span class="comment"># func调用前功能</span></span><br><span class="line">            <span class="comment"># ...</span></span><br><span class="line">            _r = func(*args, **kwargs)</span><br><span class="line">            <span class="comment"># func调用后功能...</span></span><br><span class="line">            <span class="comment"># ...</span></span><br><span class="line">            <span class="keyword">return</span> _r</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> real_decorate</span><br></pre></td></tr></table></figure></p>
 <p>以上就是一个带参数装饰器的套路写法。</p>
 <h1 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h1><p>接下来我来将这个 <em>公式</em> 的演进过程推导一下</p>
 <p>在python中函数、方法都是一等对象，所以可以把函数和方法当成变量来看待，比如</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(a)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a + a</span><br><span class="line"></span><br><span class="line">double = foo</span><br><span class="line"></span><br><span class="line">double(<span class="number">11</span>)</span><br><span class="line"><span class="comment"># 22</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(a)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a + a</span><br><span class="line"></span><br><span class="line">double = foo</span><br><span class="line"></span><br><span class="line">double(<span class="number">11</span>)</span><br><span class="line"><span class="comment"># 22</span></span><br></pre></td></tr></table></figure>
 <p>这里将foo函数标志符赋值给double，这样就能像调用foo一样调用double了，而且这个时候删除<br>foo，double依然可以使用。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> foo</span><br><span class="line">foo(<span class="number">10</span>)</span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File "&lt;stdin&gt;", line 1, in &lt;module&gt;</span></span><br><span class="line"><span class="comment"># NameError: name 'foo' is not defined</span></span><br><span class="line"></span><br><span class="line">double(<span class="number">4</span>)</span><br><span class="line"><span class="comment"># 8</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">del</span> foo</span><br><span class="line">foo(<span class="number">10</span>)</span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File "&lt;stdin&gt;", line 1, in &lt;module&gt;</span></span><br><span class="line"><span class="comment"># NameError: name 'foo' is not defined</span></span><br><span class="line"></span><br><span class="line">double(<span class="number">4</span>)</span><br><span class="line"><span class="comment"># 8</span></span><br></pre></td></tr></table></figure>
 <p>能赋值，也能被作为参数传入函数，也能作为结果被返回。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_func_name</span><span class="params">(<span class="params">(func)</span>:</span></span></span><br><span class="line"><span class="function"><span class="params">    print<span class="params">(<span class="string">f"这个方法的名字是:<span class="subst">&#123;func.__name__&#125;</span>"</span>)</span></span></span></span><br><span class="line"><span class="function"><span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params"># 将add这个函数作为参数传入</span></span></span><br><span class="line"><span class="function"><span class="params">print_func_name<span class="params">(add)</span></span></span></span><br><span class="line"><span class="function"><span class="params"># 这个方法的名字是:add</span></span></span><br><span class="line"><span class="function"><span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params"># add函数作为结果被返回</span></span></span><br><span class="line"><span class="function"><span class="params">def give_me_add<span class="params">()</span>:</span></span></span><br><span class="line"><span class="function"><span class="params">    return add</span></span></span><br><span class="line"><span class="function"><span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">myadd = give_me_add<span class="params">()</span></span></span></span><br><span class="line"><span class="function"><span class="params">myadd<span class="params">(<span class="number">2</span>, <span class="number">3</span>)</span></span></span></span><br><span class="line"><span class="function"><span class="params"># <span class="number">5</span></span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_func_name</span><span class="params">(<span class="params">(func)</span>:</span></span></span><br><span class="line"><span class="function"><span class="params">    print<span class="params">(<span class="string">f"这个方法的名字是:<span class="subst">&#123;func.__name__&#125;</span>"</span>)</span></span></span></span><br><span class="line"><span class="function"><span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params"># 将add这个函数作为参数传入</span></span></span><br><span class="line"><span class="function"><span class="params">print_func_name<span class="params">(add)</span></span></span></span><br><span class="line"><span class="function"><span class="params"># 这个方法的名字是:add</span></span></span><br><span class="line"><span class="function"><span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params"># add函数作为结果被返回</span></span></span><br><span class="line"><span class="function"><span class="params">def give_me_add<span class="params">()</span>:</span></span></span><br><span class="line"><span class="function"><span class="params">    return add</span></span></span><br><span class="line"><span class="function"><span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">myadd = give_me_add<span class="params">()</span></span></span></span><br><span class="line"><span class="function"><span class="params">myadd<span class="params">(<span class="number">2</span>, <span class="number">3</span>)</span></span></span></span><br><span class="line"><span class="function"><span class="params"># <span class="number">5</span></span></span></span><br></pre></td></tr></table></figure>
 <p>我们离装饰器不远了，现在我们回想一下装饰器的原理，其实就是将原函数重新包装一下，并且增加了一些功能。<br>这里要用到一个python的特点：<strong>python允许在方法内定义方法</strong>。那么装饰器的基本思路我们就有了，我们将<br>一个需要扩展的方法当作一个参数传入，然后对其进行包装，然后再返回包装后的函数。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 我们要扩展的函数叫foo</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"I'm foo"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorate</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">return</span> func()</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line">decorated_foo = decorate(foo)</span><br><span class="line">print(decorated_foo)</span><br><span class="line"><span class="comment"># &lt;function decorate.&lt;locals&gt;.wrapper at 0x1035d9bf8&gt;</span></span><br><span class="line"><span class="comment"># 注意这里是wrapper标识符哦！！</span></span><br><span class="line">decorated_foo()</span><br><span class="line"><span class="comment"># 输出:I'm foo</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 我们要扩展的函数叫foo</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"I'm foo"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorate</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">return</span> func()</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line">decorated_foo = decorate(foo)</span><br><span class="line">print(decorated_foo)</span><br><span class="line"><span class="comment"># &lt;function decorate.&lt;locals&gt;.wrapper at 0x1035d9bf8&gt;</span></span><br><span class="line"><span class="comment"># 注意这里是wrapper标识符哦！！</span></span><br><span class="line">decorated_foo()</span><br><span class="line"><span class="comment"># 输出:I'm foo</span></span><br></pre></td></tr></table></figure>
 <p>梳理上面这段代码的含义。<code>foo</code>是我们需要扩展的函数。<code>decorate</code>函数接受一个方法作为参数传入，<br>在<code>decorate</code>定义了一个<code>wrapper</code>对传进来的方法进行包装（这里什么都没做），最后返回了这个包装<br>函数。那么我们在将<code>foo</code>传入<code>decorate</code>后会得到一个函数标识符的返回结果，调用这个结果就等于调用了<br><code>wrapper</code>，最终执行的就是<code>wrapper</code>里的逻辑了。这样就得到了我们想要扩展函数的目的。</p>
 <blockquote>
 <p>装饰器返回的是内部函数的标识符，而总结里的<code>from functools import wraps</code>导入的wraps可以将<br>装饰后的函数名字等一些信息保持不变。大家去试试吧。</p>
 </blockquote>
 <p>接下来我们来个复杂一点点的，我们要为 <code>add</code> 函数加一个功能：输出传入它的参数，当然我们不希望去<br>改动 <code>add</code> 函数本身:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorate</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="comment"># 刚刚我们知道，最终我们是调用了wrapper函数，</span></span><br><span class="line">    <span class="comment"># 所以有参数需要传入扩展函数，那么就在调用wrapper的时候传入，由wrapper传达给扩展函数</span></span><br><span class="line">    <span class="comment"># 当然我们在不确定扩展函数的参数形态的时候</span></span><br><span class="line">    <span class="comment"># 可以用*args, **kwargs来替代任何参数</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(a, b)</span>:</span></span><br><span class="line">        print(<span class="string">"传入参数: %s, %s"</span> % (a, b))</span><br><span class="line">        _r = func(a, b)</span><br><span class="line">        <span class="keyword">return</span> _r</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line">print_param_add = decorate(add)</span><br><span class="line">print_param_add(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 传入参数: 1, 3</span></span><br><span class="line"><span class="comment"># 4</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorate</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="comment"># 刚刚我们知道，最终我们是调用了wrapper函数，</span></span><br><span class="line">    <span class="comment"># 所以有参数需要传入扩展函数，那么就在调用wrapper的时候传入，由wrapper传达给扩展函数</span></span><br><span class="line">    <span class="comment"># 当然我们在不确定扩展函数的参数形态的时候</span></span><br><span class="line">    <span class="comment"># 可以用*args, **kwargs来替代任何参数</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(a, b)</span>:</span></span><br><span class="line">        print(<span class="string">"传入参数: %s, %s"</span> % (a, b))</span><br><span class="line">        _r = func(a, b)</span><br><span class="line">        <span class="keyword">return</span> _r</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line">print_param_add = decorate(add)</span><br><span class="line">print_param_add(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 传入参数: 1, 3</span></span><br><span class="line"><span class="comment"># 4</span></span><br></pre></td></tr></table></figure>
 <p>这样我们就做好了一个最简单基础的装饰器了。为了达到 <strong>“装饰”</strong> 的效果，我们不希望“装饰“后的函数<br>改变其名字，这个不难。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">add = decorate(add)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">add = decorate(add)</span><br></pre></td></tr></table></figure>
 <p>这样我们就可以不改变其他地方调用<code>add</code>的代码，为<code>add</code>增加一些功能了。<br>如同 <code>i += 1</code> 一样python为我们提供了一个语法糖来更加简单、直观地使用装饰器。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@decorate</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 等同于</span></span><br><span class="line">func = decorate(func)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@decorate</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 等同于</span></span><br><span class="line">func = decorate(func)</span><br></pre></td></tr></table></figure>
 <p>以上就是一个简单装饰器的写法来了。在<a href="#结论">结论</a>中另外一种是带参数的装饰器，里面用到了很深的一些python知识：闭包。</p>
 <p>也可以简单的理解成，先用一个函数构建一个装饰器，而我们在装饰器上传入的参数能在构建出来的装饰器中“使用”。<br>这里的使用是有局限性的，原因就需要你去理解闭包的相关知识了。用一段代码来简单说明：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 装饰器构建函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorate_builder</span><span class="params">(*n_args, **n_kwargs)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner_decorate</span><span class="params">(func)</span>:</span></span><br><span class="line">        <span class="comment"># 不带参数装饰器的写法</span></span><br><span class="line">        <span class="comment"># 在这里*n_args, **n_kwargs参数可以被使用</span></span><br><span class="line">        <span class="comment"># ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> inner_decorate</span><br><span class="line"></span><br><span class="line">decorate = decorate_builder(param1=<span class="keyword">None</span>, param2=<span class="keyword">True</span>)  <span class="comment"># 这里返回的是一个普通装饰器的标识符</span></span><br><span class="line">foo =  decorate(foo)  <span class="comment"># 等同于 foo = decorate_builder(param1=None, param2=True)(foo)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 相当于</span></span><br><span class="line"><span class="meta">@decorate_builder(param1=None, param2=True)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 装饰器构建函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorate_builder</span><span class="params">(*n_args, **n_kwargs)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner_decorate</span><span class="params">(func)</span>:</span></span><br><span class="line">        <span class="comment"># 不带参数装饰器的写法</span></span><br><span class="line">        <span class="comment"># 在这里*n_args, **n_kwargs参数可以被使用</span></span><br><span class="line">        <span class="comment"># ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> inner_decorate</span><br><span class="line"></span><br><span class="line">decorate = decorate_builder(param1=<span class="keyword">None</span>, param2=<span class="keyword">True</span>)  <span class="comment"># 这里返回的是一个普通装饰器的标识符</span></span><br><span class="line">foo =  decorate(foo)  <span class="comment"># 等同于 foo = decorate_builder(param1=None, param2=True)(foo)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 相当于</span></span><br><span class="line"><span class="meta">@decorate_builder(param1=None, param2=True)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 <p>小练习</p>
 <blockquote>
 <p>有一个函数，返回传入的字符串。我们写个装饰器，将它打印的内容根据参数转换成大写或者小写。</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">case</span><span class="params">(b)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner_decorate</span><span class="params">(func)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            _r = func(*args, **kwargs)</span><br><span class="line">            <span class="keyword">if</span> b == <span class="string">"lower"</span>:</span><br><span class="line">                _r = _r.lower()</span><br><span class="line">            <span class="keyword">elif</span> b == <span class="string">"upper"</span>:</span><br><span class="line">                _r = _r.upper()</span><br><span class="line">            <span class="keyword">return</span> _r</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> inner_decorate</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@case("upper")  # upper或者lower</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">output</span><span class="params">(s)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> s</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">case</span><span class="params">(b)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner_decorate</span><span class="params">(func)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            _r = func(*args, **kwargs)</span><br><span class="line">            <span class="keyword">if</span> b == <span class="string">"lower"</span>:</span><br><span class="line">                _r = _r.lower()</span><br><span class="line">            <span class="keyword">elif</span> b == <span class="string">"upper"</span>:</span><br><span class="line">                _r = _r.upper()</span><br><span class="line">            <span class="keyword">return</span> _r</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> inner_decorate</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@case("upper")  # upper或者lower</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">output</span><span class="params">(s)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> s</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -518,6 +515,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/05/13/四招美化click命令行应用/" rel="prev" title="四招美化click命令行应用">
+                四招美化click命令行应用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -559,7 +560,6 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
@@ -584,7 +584,7 @@
                 alt="ΩmegaPhi"/>
             
               <p class="site-author-name" itemprop="name">ΩmegaPhi</p>
-              <p class="site-description motion-element" itemprop="description">记录&成长</p>
+              <div class="site-description motion-element" itemprop="description">记录&成长</div>
           </div>
 
           
@@ -594,7 +594,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -606,7 +606,11 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
                     
                     
                       
@@ -615,7 +619,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -630,6 +636,8 @@
                 RSS
               </a>
             </div>
+          
+
           
 
           
@@ -696,6 +704,7 @@
 
     </div>
   </aside>
+  
 
 
         
@@ -704,9 +713,9 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ΩmegaPhi</span>
 
@@ -724,38 +733,12 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.0.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
 
 
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-user"></i>
-    </span>
-    <span class="site-uv" title="总访客量">
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="post-meta-divider">|</span>
-  
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
-    </span>
-    <span class="site-pv" title="总访问量">
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
-
 
 
 
@@ -813,6 +796,8 @@
 
 
 
+  
+
 
 
   
@@ -824,36 +809,44 @@
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-
   
-
-
-  <script src="/js/src/utils.js?v=7.0.0"></script>
-
-  <script src="/js/src/motion.js?v=7.0.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
-
-
-
-  
-  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
-<script src="/js/src/post-details.js?v=7.0.0"></script>
-
+  <script src="/lib/reading_progress/reading_progress.js"></script>
 
 
   
 
 
-  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
 
 
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
 
   
   
@@ -876,11 +869,12 @@
     notify: false,
     appId: 'XyUBPWqP1ewlFStMpIh2JJRL-gzGzoHsz',
     appKey: '22AxxKrxhkKs49yoX9tJ7psB',
-    placeholder: '...',
+    placeholder: '请留言交流吧...',
     avatar: 'mm',
     meta: guest,
     pageSize: '10' || 10,
-    visitor: false
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn'
   });
 </script>
 
@@ -904,21 +898,8 @@
   
 
   
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; 
-      }
-      else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-      }
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
 
+  
 
   
 

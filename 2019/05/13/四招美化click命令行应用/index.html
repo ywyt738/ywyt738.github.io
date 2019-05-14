@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="vP9aas7emOLDFrM8GHbGmqOxMIUf9rVEDByE0wujlS4"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="python在实现命令行工具的方面有很多有优势的库，其中Click是其中的佼佼者。 今天不是Click的教学，参考官方文档就可以很快写出一个不错的命令行应用。今天我们来做四件事提高我们命令行应用的B格：  长时间任务的等待效果 命令行帮助的文档的美化 错误命令猜测提示 日志级别的控制">
+<meta name="keywords" content="python,cli">
+<meta property="og:type" content="article">
+<meta property="og:title" content="四招美化click命令行应用">
+<meta property="og:url" content="https://ywyt738.github.io/2019/05/13/四招美化click命令行应用/index.html">
+<meta property="og:site_name" content="ΩmegaPhi&#39;s Blog">
+<meta property="og:description" content="python在实现命令行工具的方面有很多有优势的库，其中Click是其中的佼佼者。 今天不是Click的教学，参考官方文档就可以很快写出一个不错的命令行应用。今天我们来做四件事提高我们命令行应用的B格：  长时间任务的等待效果 命令行帮助的文档的美化 错误命令猜测提示 日志级别的控制">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://asciinema.org/a/246028.svg">
+<meta property="og:image" content="https://ywyt738.github.io/2019/05/13/四招美化click命令行应用/colour_help_1.png">
+<meta property="og:image" content="https://ywyt738.github.io/2019/05/13/四招美化click命令行应用/colour_help_2.png">
+<meta property="og:image" content="https://ywyt738.github.io/2019/05/13/四招美化click命令行应用/colour_help_3.png">
+<meta property="og:image" content="https://ywyt738.github.io/2019/05/13/四招美化click命令行应用/dym.png">
+<meta property="og:updated_time" content="2019-05-14T06:49:27.770Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="四招美化click命令行应用">
+<meta name="twitter:description" content="python在实现命令行工具的方面有很多有优势的库，其中Click是其中的佼佼者。 今天不是Click的教学，参考官方文档就可以很快写出一个不错的命令行应用。今天我们来做四件事提高我们命令行应用的B格：  长时间任务的等待效果 命令行帮助的文档的美化 错误命令猜测提示 日志级别的控制">
+<meta name="twitter:image" content="https://asciinema.org/a/246028.svg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ΩmegaPhi's Blog" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://ywyt738.github.io/2019/05/13/四招美化click命令行应用/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>四招美化click命令行应用 | ΩmegaPhi's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ΩmegaPhi's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ywyt738.github.io/2019/05/13/四招美化click命令行应用/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ΩmegaPhi"/>
+      <meta itemprop="description" content="记录&成长"/>
+      <meta itemprop="image" content="/images/avatar.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ΩmegaPhi's Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">四招美化click命令行应用
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-13 14:26:25" itemprop="dateCreated datePublished" datetime="2019-05-13T14:26:25+08:00">2019-05-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-14 14:49:27" itemprop="dateModified" datetime="2019-05-14T14:49:27+08:00">2019-05-14</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/05/13/四招美化click命令行应用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/13/四招美化click命令行应用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>python在实现命令行工具的方面有很多有优势的库，其中<a href="https://click.palletsprojects.com/en/7.x/" target="_blank" rel="noopener">Click</a>是其中的佼佼者。</p>
+<p>今天不是<code>Click</code>的教学，参考官方文档就可以很快写出一个不错的命令行应用。今天我们来做四件事提高我们命令行应用的B格：</p>
+<ul>
+<li>长时间任务的等待效果</li>
+<li>命令行帮助的文档的美化</li>
+<li>错误命令猜测提示</li>
+<li>日志级别的控制<a id="more"></a>
+<h2 id="快速实现一个等待效果"><a href="#快速实现一个等待效果" class="headerlink" title="快速实现一个等待效果"></a>快速实现一个等待效果</h2></li>
+</ul>
+<p>在很多命令行工具的交互过程中存在着长时间等待一些任务，如果没有一些友好的提示，经常会被使用者认为<br>卡死或者死循环等情况。而<code>进度条</code>是一个非常不错的解决方案，<a href="https://pypi.org/project/progressbar2/" target="_blank" rel="noopener">progressbar</a>，<a href="https://pypi.org/project/progressive/" target="_blank" rel="noopener">progressive</a>都是不错的选择, <code>click</code>也有自己的<code>click.progressbar</code>。但是遇到总体进度预先不知道的任务，例如：等待某个任务完成、等待数据加载等这些不知道什么时候才能完成的任务的时候进度条就不那么好用了。这个时候最简单的一个表示方式就是循环动画播放，比如iOS中的“转菊花”。</p>
+<p>你可以自己写一个异步的动画播放效果，这里我就不写了。我今天要用非常简单的方法来实现这一效果，我们用<br>到的是<a href="https://github.com/kennethreitz/blindspin" target="_blank" rel="noopener">blindspin</a>，一个<a href="https://github.com/click-contrib/click-spinner" target="_blank" rel="noopener">click-spinner</a>的fork，没什么大变化主要是动画效果不一样。</p>
+<p>安装</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install blindspin</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><figcaption><span>spinner.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> click</span><br><span class="line"><span class="keyword">import</span> blindspin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">a_long_time_task</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""模拟一个需要等待的任务"""</span></span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@click.command()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cli</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 将长时间的任务放在这个with语句中就可以了</span></span><br><span class="line">    <span class="comment"># with中执行的任务全部结束，动画效果就会结束</span></span><br><span class="line">    <span class="keyword">with</span> blindspin.spinner():</span><br><span class="line">        a_long_time_task()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    cli()</span><br></pre></td></tr></table></figure>
+<p>效果:<br><a href="https://asciinema.org/a/246028" target="_blank" rel="noopener"><img src="https://asciinema.org/a/246028.svg" alt="asciicast"></a></p>
+<h2 id="美化帮助文档"><a href="#美化帮助文档" class="headerlink" title="美化帮助文档"></a>美化帮助文档</h2><p><code>click</code>能够非常方便的生成帮助文档，通过命令行参数<code>--help</code>就能查看到。默认的帮助文档是一色的，现在我们来给它上色吧。</p>
+<p>安装</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install click-help-colors</span><br></pre></td></tr></table></figure>
+<p>这里我就用<a href="https://github.com/r-m-n/click-help-colors" target="_blank" rel="noopener">官网</a>的例子，稍稍改一点点，自己体会一下就会用了。</p>
+<figure class="highlight python"><figcaption><span>colour_help.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> click</span><br><span class="line"><span class="keyword">from</span> click_help_colors <span class="keyword">import</span> HelpColorsGroup, HelpColorsCommand</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@click.group(</span></span><br><span class="line">    cls=HelpColorsGroup,</span><br><span class="line">    help_headers_color=<span class="string">'yellow'</span>,</span><br><span class="line">    help_options_color=<span class="string">'magenta'</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cli</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""主命令"""</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@cli.command()</span></span><br><span class="line"><span class="meta">@click.option('--count', default=1, help='Some number.')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">command1</span><span class="params">(count)</span>:</span></span><br><span class="line">    click.echo(<span class="string">'command 1'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@cli.command(cls=HelpColorsCommand, help_options_color='blue')</span></span><br><span class="line"><span class="meta">@click.option('--name', help='Some string.')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">command2</span><span class="params">(name)</span>:</span></span><br><span class="line">    click.echo(<span class="string">'command 2'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    cli()</span><br></pre></td></tr></table></figure>
+<p>效果</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python colour_help.py --help</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/13/四招美化click命令行应用/colour_help_1.png" alt=""></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python colour_help.py command1 --help</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/13/四招美化click命令行应用/colour_help_2.png" alt=""></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python colour_help.py command2 --help</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/05/13/四招美化click命令行应用/colour_help_3.png" alt=""></p>
+<h2 id="猜测用户希望的命令"><a href="#猜测用户希望的命令" class="headerlink" title="猜测用户希望的命令"></a>猜测用户希望的命令</h2><p>当我们子命令比较多的时候，用户可能会记错、拼错或者打错。能提示用户正确的命令那是多么cool的一件事，<br>然而我们经常用的<a href="https://git-scm.com/" target="_blank" rel="noopener">git</a>就有这样的功能。</p>
+<p><img src="/2019/05/13/四招美化click命令行应用/dym.png" alt=""><br>这里我输错<code>push</code>命令，git提示我们正确的写法。这个功能已经有人帮我们实现了，就是<a href="https://github.com/click-contrib/click-didyoumean" target="_blank" rel="noopener">click-didyoumean</a></p>
+<p>安装</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install click-didyoumean</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<ol>
+<li><p>为你的命令组指定<code>DYMGroup</code>类</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> click</span><br><span class="line"><span class="keyword">from</span> click_didyoumean <span class="keyword">import</span> DYMGroup</span><br><span class="line"></span><br><span class="line"><span class="meta">@click.group(cls=DYMGroup)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cli</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@cli.command()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@cli.command()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bar</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@cli.command()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">barrr</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    cli()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将需要的子命令放入<code>DYMCommandCollection</code>中</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> click</span><br><span class="line"><span class="keyword">from</span> click_didyoumean <span class="keyword">import</span> DYMCommandCollection</span><br><span class="line"></span><br><span class="line"><span class="meta">@click.group()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cli1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@cli1.command()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@cli1.command()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bar</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@click.group()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cli2</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@cli2.command()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">barrr</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">cli = DYMCommandCollection(sources=[cli1, cli2])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    cli()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><code>DYMGroup</code>和<code>DYMCommandCollection</code>类有两个配置项，</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>max_suggestions</td>
+<td>int</td>
+<td>3</td>
+<td>最大建议条目数</td>
+</tr>
+<tr>
+<td>cutoff</td>
+<td>float</td>
+<td>0.5</td>
+<td>小于这个可能性分数的将会被忽略</td>
+</tr>
+</tbody>
+</table>
+<p>例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@cli.group(cls=DYMGroup, max_suggestions=2, cutoff=0.7)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cli</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">... </span><span class="keyword">or</span> ...</span><br><span class="line"></span><br><span class="line">cli = DYMCommandCollection(sources=[cli1, cli2], max_suggestions=<span class="number">2</span>, cutoff=<span class="number">0.7</span>)</span><br></pre></td></tr></table></figure>
+<p>这里有个小插曲，如果你想同时使用<code>click-help-colors</code>和<code>click-didyoumean</code>，那么你会发现他们都需要对<code>cls</code>参数进行修改。怎么同时让两者都生效呢？这里可以使用python的多重继承功能。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CLI</span><span class="params">(DYMGroup, click_help_colors.HelpColorsGroup)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@click.group(</span></span><br><span class="line">    cls=CLI, help_headers_color=<span class="string">'yellow'</span>, help_options_color=<span class="string">'blue'</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cli</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>这样我们就能使得我们的命令行应用同时具备着两种功能了👍。</p>
+<h2 id="用户指定日志等级"><a href="#用户指定日志等级" class="headerlink" title="用户指定日志等级"></a>用户指定日志等级</h2><p>我们经常有这样的情况，希望日志等级可以通过参数的传入来控制。比如，默认情况只输出一下必要信息。加入参数<code>-v</code>可以显示更多详细信息。</p>
+<p>通常情况我们可以这样实现：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@click.command()</span></span><br><span class="line"><span class="meta">@click.option('--verbose', '-v', default=False, is_flag=True)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cli</span><span class="params">(verbose)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> verbose:</span><br><span class="line">        logger.setLevel(logging.ERROR)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        logger.setLevel(logging.INFO)</span><br><span class="line"></span><br><span class="line">    logger.info(<span class="string">"普通输出信息"</span>)</span><br><span class="line">    logger.error(<span class="string">"详细信息"</span>)</span><br></pre></td></tr></table></figure>
+<p>然而<a href="https://github.com/click-contrib/click-log" target="_blank" rel="noopener">click-log</a>已经为我们实现了这一功能，使用python最大的好处就是<strong>DRY</strong>(Don’t repeat yourself)</p>
+<p>安装</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install click-log</span><br></pre></td></tr></table></figure>
+<p>这里我们仅仅演示基本的做法，更多自定义的内容请参考<a href="https://click-log.readthedocs.io/en/stable/" target="_blank" rel="noopener">官方文档</a></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> click_log</span><br><span class="line"></span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line">click_log.basic_config(logger)</span><br><span class="line"></span><br><span class="line"><span class="meta">@click.command()</span></span><br><span class="line"><span class="meta">@click_log.simple_verbosity_option(logger)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cli</span><span class="params">()</span>:</span></span><br><span class="line">    logger.info(<span class="string">"Dividing by zero."</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="number">1</span> / <span class="number">0</span></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        logger.error(<span class="string">"Failed to divide by zero."</span>)</span><br></pre></td></tr></table></figure>
+<p>以上代码，中<code>click_log.simple_verbosity_option</code>装饰器为命令增加了一个<code>--verbosity</code>可选参数，<br>它接受<code>DEBUG</code>,<code>INFO</code>,<code>WARNING</code>,<code>ERROR</code>或者<code>CRITICAL</code>这几个值来控制日志级别。</p>
+<p>好了以上就是我们用来美化<code>click</code>命令行应用的四招。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/cli/" rel="tag"># cli</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/28/写一个python装饰器/" rel="next" title="写一个python装饰器">
+                <i class="fa fa-chevron-left"></i> 写一个python装饰器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="ΩmegaPhi"/>
+            
+              <p class="site-author-name" itemprop="name">ΩmegaPhi</p>
+              <div class="site-description motion-element" itemprop="description">记录&成长</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/ywyt738" title="GitHub &rarr; https://github.com/ywyt738" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/CN_OmegaPhi" title="Twitter &rarr; https://twitter.com/CN_OmegaPhi" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#快速实现一个等待效果"><span class="nav-number">1.</span> <span class="nav-text">快速实现一个等待效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#美化帮助文档"><span class="nav-number">2.</span> <span class="nav-text">美化帮助文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#猜测用户希望的命令"><span class="nav-number">3.</span> <span class="nav-text">猜测用户希望的命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户指定日志等级"><span class="nav-number">4.</span> <span class="nav-text">用户指定日志等级</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ΩmegaPhi</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.4.2</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'XyUBPWqP1ewlFStMpIh2JJRL-gzGzoHsz',
+    appKey: '22AxxKrxhkKs49yoX9tJ7psB',
+    placeholder: '请留言交流吧...',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -30,7 +30,7 @@
 
 
 
-
+  <meta name="google-site-verification" content="vP9aas7emOLDFrM8GHbGmqOxMIUf9rVEDByE0wujlS4"/>
 
 
 
@@ -48,19 +48,19 @@
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
 
-<link rel="stylesheet" href="/css/main.css?v=7.0.0"/>
+<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
 
 
 
@@ -73,8 +73,10 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    version: '7.0.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -96,18 +98,18 @@
 
 
 
-  <meta name="description" content="概要通过整合PV(Physical Volume)成VG(Volume Group)，再从VG中分割出LV(Logical Volume)，挂在LV来使用。  基础操作 创建pv  1pvcreate /dev/sdc  将pv加入vg中  12# storage是vg卷名称vgcreate storage /dev/">
+  <meta name="description" content="概要通过整合PV(Physical Volume)成VG(Volume Group)，再从VG中分割出LV(Logical Volume)，挂在LV来使用。  基础操作 创建pv  pvcreate /dev/sdc  将pv加入vg中  # storage是vg卷名称vgcreate storage /dev/sdc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LVM逻辑卷管理器">
 <meta property="og:url" content="https://ywyt738.github.io/2018/12/19/LVM逻辑卷管理器/index.html">
 <meta property="og:site_name" content="ΩmegaPhi&#39;s Blog">
-<meta property="og:description" content="概要通过整合PV(Physical Volume)成VG(Volume Group)，再从VG中分割出LV(Logical Volume)，挂在LV来使用。  基础操作 创建pv  1pvcreate /dev/sdc  将pv加入vg中  12# storage是vg卷名称vgcreate storage /dev/sdc  切割出lv  1234567# -n lv名称# 在对逻辑卷进行切割时">
+<meta property="og:description" content="概要通过整合PV(Physical Volume)成VG(Volume Group)，再从VG中分割出LV(Logical Volume)，挂在LV来使用。  基础操作 创建pv  pvcreate /dev/sdc  将pv加入vg中  # storage是vg卷名称vgcreate storage /dev/sdc  切割出lv  # -n lv名称# 在对逻辑卷进行切割时有两种计量单位。#">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ywyt738.github.io/2018/12/19/LVM逻辑卷管理器/逻辑卷.png">
-<meta property="og:updated_time" content="2018-12-19T02:34:19.574Z">
+<meta property="og:updated_time" content="2019-05-14T01:33:08.861Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LVM逻辑卷管理器">
-<meta name="twitter:description" content="概要通过整合PV(Physical Volume)成VG(Volume Group)，再从VG中分割出LV(Logical Volume)，挂在LV来使用。  基础操作 创建pv  1pvcreate /dev/sdc  将pv加入vg中  12# storage是vg卷名称vgcreate storage /dev/sdc  切割出lv  1234567# -n lv名称# 在对逻辑卷进行切割时">
+<meta name="twitter:description" content="概要通过整合PV(Physical Volume)成VG(Volume Group)，再从VG中分割出LV(Logical Volume)，挂在LV来使用。  基础操作 创建pv  pvcreate /dev/sdc  将pv加入vg中  # storage是vg卷名称vgcreate storage /dev/sdc  切割出lv  # -n lv名称# 在对逻辑卷进行切割时有两种计量单位。#">
 <meta name="twitter:image" content="https://ywyt738.github.io/2018/12/19/LVM逻辑卷管理器/逻辑卷.png">
 
 
@@ -116,7 +118,8 @@
 
 
 
-
+  
+  
   <link rel="canonical" href="https://ywyt738.github.io/2018/12/19/LVM逻辑卷管理器/"/>
 
 
@@ -320,6 +323,8 @@
   
 
   
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -369,12 +374,24 @@
                 
               
 
-              <time title="创建时间：2018-12-19 10:16:14 / 修改时间：10:34:19" itemprop="dateCreated datePublished" datetime="2018-12-19T10:16:14+08:00">2018-12-19</time>
+              <time title="创建时间：2018-12-19 10:16:14" itemprop="dateCreated datePublished" datetime="2018-12-19T10:16:14+08:00">2018-12-19</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-14 09:33:08" itemprop="dateModified" datetime="2019-05-14T09:33:08+08:00">2019-05-14</time>
               
             
           </span>
@@ -403,14 +420,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
 
           
 
@@ -430,22 +439,22 @@
 
       
         <h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>通过整合PV(Physical Volume)成VG(Volume Group)，再从VG中分割出LV(Logical Volume)，挂在LV来使用。</p>
-<p><img src="/2018/12/19/LVM逻辑卷管理器/逻辑卷.png" alt="你想要输入的替代文字"></p>
+<p><img src="/2018/12/19/LVM逻辑卷管理器/逻辑卷.png" alt=""></p>
 <h1 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h1><ol>
 <li><p>创建pv</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pvcreate /dev/sdc</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pvcreate /dev/sdc</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>将pv加入vg中</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># storage是vg卷名称</span></span><br><span class="line">vgcreate storage /dev/sdc</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># storage是vg卷名称</span></span><br><span class="line">vgcreate storage /dev/sdc</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>切割出lv</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -n lv名称</span></span><br><span class="line"><span class="comment"># 在对逻辑卷进行切割时有两种计量单位。</span></span><br><span class="line"><span class="comment"># 第一种是以容量为单位，所使用的参数为-L。</span></span><br><span class="line"><span class="comment"># 例如，使用-L 150M生成一个大小为150MB的逻辑卷。</span></span><br><span class="line"><span class="comment"># 另外一种是以基本单元的个数为单位，所使用的参数为-l。每个基本单元的大小默认为4MB。</span></span><br><span class="line"><span class="comment"># 例如，使用-l 37可以生成一个大小为37×4MB=148MB的逻辑卷。</span></span><br><span class="line">lvcreate -n vo -l 37 storage</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -n lv名称</span></span><br><span class="line"><span class="comment"># 在对逻辑卷进行切割时有两种计量单位。</span></span><br><span class="line"><span class="comment"># 第一种是以容量为单位，所使用的参数为-L。</span></span><br><span class="line"><span class="comment"># 例如，使用-L 150M生成一个大小为150MB的逻辑卷。</span></span><br><span class="line"><span class="comment"># 另外一种是以基本单元的个数为单位，所使用的参数为-l。每个基本单元的大小默认为4MB。</span></span><br><span class="line"><span class="comment"># 例如，使用-l 37可以生成一个大小为37×4MB=148MB的逻辑卷。</span></span><br><span class="line">lvcreate -n vo -l 37 storage</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>格式化、挂载</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/storage/vo</span><br><span class="line">mkdir /data</span><br><span class="line">mount /dev/storage/vo /data</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkfs.ext4 /dev/storage/vo</span><br><span class="line">mkdir /data</span><br><span class="line">mount /dev/storage/vo /data</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>写入配置文件，永久生效</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"/dev/storage/vo /data ext4 defaults 0 0"</span> &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"/dev/storage/vo /data ext4 defaults 0 0"</span> &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h1 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h1><table>
@@ -582,7 +591,6 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
@@ -607,7 +615,7 @@
                 alt="ΩmegaPhi"/>
             
               <p class="site-author-name" itemprop="name">ΩmegaPhi</p>
-              <p class="site-description motion-element" itemprop="description">记录&成长</p>
+              <div class="site-description motion-element" itemprop="description">记录&成长</div>
           </div>
 
           
@@ -617,7 +625,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -629,7 +637,11 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
                     
                     
                       
@@ -638,7 +650,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -653,6 +667,8 @@
                 RSS
               </a>
             </div>
+          
+
           
 
           
@@ -719,6 +735,7 @@
 
     </div>
   </aside>
+  
 
 
         
@@ -727,9 +744,9 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ΩmegaPhi</span>
 
@@ -747,38 +764,12 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.0.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
 
 
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-user"></i>
-    </span>
-    <span class="site-uv" title="总访客量">
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="post-meta-divider">|</span>
-  
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
-    </span>
-    <span class="site-pv" title="总访问量">
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
-
 
 
 
@@ -836,6 +827,8 @@
 
 
 
+  
+
 
 
   
@@ -847,36 +840,44 @@
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-
   
-
-
-  <script src="/js/src/utils.js?v=7.0.0"></script>
-
-  <script src="/js/src/motion.js?v=7.0.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
-
-
-
-  
-  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
-<script src="/js/src/post-details.js?v=7.0.0"></script>
-
+  <script src="/lib/reading_progress/reading_progress.js"></script>
 
 
   
 
 
-  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
 
 
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
 
   
   
@@ -899,11 +900,12 @@
     notify: false,
     appId: 'XyUBPWqP1ewlFStMpIh2JJRL-gzGzoHsz',
     appKey: '22AxxKrxhkKs49yoX9tJ7psB',
-    placeholder: '...',
+    placeholder: '请留言交流吧...',
     avatar: 'mm',
     meta: guest,
     pageSize: '10' || 10,
-    visitor: false
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn'
   });
 </script>
 
@@ -927,21 +929,8 @@
   
 
   
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; 
-      }
-      else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-      }
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
 
+  
 
   
 

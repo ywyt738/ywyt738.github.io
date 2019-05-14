@@ -30,7 +30,7 @@
 
 
 
-
+  <meta name="google-site-verification" content="vP9aas7emOLDFrM8GHbGmqOxMIUf9rVEDByE0wujlS4"/>
 
 
 
@@ -48,19 +48,19 @@
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
 
-<link rel="stylesheet" href="/css/main.css?v=7.0.0"/>
+<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
 
 
 
@@ -73,8 +73,10 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    version: '7.0.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -96,18 +98,18 @@
 
 
 
-  <meta name="description" content="始于2048游戏的一个问题在写2048的时候，需要写一个4*4的游戏棋盘。最容易实现的方法就是二维数组，例如用 a[x][y] 来表示一个游戏棋盘的格子。然后用赋值的方法给格子填充数字。当时的实现方法如下： 1234567891011a = [[&apos;_&apos;] * 4 ] * 4# [[&apos;_&a">
+  <meta name="description" content="始于2048游戏的一个问题在写2048的时候，需要写一个4*4的游戏棋盘。最容易实现的方法就是二维数组，例如用 a[x][y] 来表示一个游戏棋盘的格子。然后用赋值的方法给格子填充数字。当时的实现方法如下： a = [[&apos;_&apos;] * 4 ] * 4# [[&apos;_&apos;, &apos;_">
 <meta name="keywords" content="python,数据格式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python嵌套列表初始化">
 <meta property="og:url" content="https://ywyt738.github.io/2018/01/30/Python嵌套列表初始化/index.html">
 <meta property="og:site_name" content="ΩmegaPhi&#39;s Blog">
-<meta property="og:description" content="始于2048游戏的一个问题在写2048的时候，需要写一个4*4的游戏棋盘。最容易实现的方法就是二维数组，例如用 a[x][y] 来表示一个游戏棋盘的格子。然后用赋值的方法给格子填充数字。当时的实现方法如下： 1234567891011a = [[&apos;_&apos;] * 4 ] * 4# [[&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [&apos;_&apos;, &apos;_&apos;, &apos;">
+<meta property="og:description" content="始于2048游戏的一个问题在写2048的时候，需要写一个4*4的游戏棋盘。最容易实现的方法就是二维数组，例如用 a[x][y] 来表示一个游戏棋盘的格子。然后用赋值的方法给格子填充数字。当时的实现方法如下： a = [[&apos;_&apos;] * 4 ] * 4# [[&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-01-30T05:49:43.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python嵌套列表初始化">
-<meta name="twitter:description" content="始于2048游戏的一个问题在写2048的时候，需要写一个4*4的游戏棋盘。最容易实现的方法就是二维数组，例如用 a[x][y] 来表示一个游戏棋盘的格子。然后用赋值的方法给格子填充数字。当时的实现方法如下： 1234567891011a = [[&apos;_&apos;] * 4 ] * 4# [[&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [&apos;_&apos;, &apos;_&apos;, &apos;">
+<meta name="twitter:description" content="始于2048游戏的一个问题在写2048的时候，需要写一个4*4的游戏棋盘。最容易实现的方法就是二维数组，例如用 a[x][y] 来表示一个游戏棋盘的格子。然后用赋值的方法给格子填充数字。当时的实现方法如下： a = [[&apos;_&apos;] * 4 ] * 4# [[&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [&apos;_&apos;, &apos;_&apos;, &apos;_&apos;, &apos;_&apos;],#  [">
 
 
 
@@ -115,7 +117,8 @@
 
 
 
-
+  
+  
   <link rel="canonical" href="https://ywyt738.github.io/2018/01/30/Python嵌套列表初始化/"/>
 
 
@@ -319,6 +322,8 @@
   
 
   
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -402,14 +407,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
 
           
 
@@ -429,11 +426,11 @@
 
       
         <h3 id="始于2048游戏的一个问题"><a href="#始于2048游戏的一个问题" class="headerlink" title="始于2048游戏的一个问题"></a>始于2048游戏的一个问题</h3><p>在写2048的时候，需要写一个4*4的游戏棋盘。最容易实现的方法就是二维数组，例如用 <code>a[x][y]</code> 来表示一个游戏棋盘的格子。然后用赋值的方法给格子填充数字。当时的实现方法如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = [[<span class="string">'_'</span>] * <span class="number">4</span> ] * <span class="number">4</span></span><br><span class="line"><span class="comment"># [['_', '_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_', '_']]</span></span><br><span class="line"></span><br><span class="line">a[<span class="number">1</span>][<span class="number">2</span>] = <span class="string">'X'</span>    <span class="comment"># 2行3列填充'X'</span></span><br><span class="line"><span class="comment"># [['_', '_', 'X', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', 'X', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', 'X', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', 'X', '_']]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [[<span class="string">'_'</span>] * <span class="number">4</span> ] * <span class="number">4</span></span><br><span class="line"><span class="comment"># [['_', '_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_', '_']]</span></span><br><span class="line"></span><br><span class="line">a[<span class="number">1</span>][<span class="number">2</span>] = <span class="string">'X'</span>    <span class="comment"># 2行3列填充'X'</span></span><br><span class="line"><span class="comment"># [['_', '_', 'X', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', 'X', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', 'X', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', 'X', '_']]</span></span><br></pre></td></tr></table></figure>
 <h3 id="流畅的Python"><a href="#流畅的Python" class="headerlink" title="流畅的Python"></a>流畅的Python</h3><p>由于仅仅只做了一步赋值动作，所以怎么想都没想明白，抱着侥幸的心里查看了一下《流畅的python》，果然发现了案例，描述的问题一模一样。书中给出的方法是（书中是3*3的棋盘）：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = [[<span class="string">'_'</span>] * <span class="number">3</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>)]</span><br><span class="line"><span class="comment"># [['_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_']]</span></span><br><span class="line"></span><br><span class="line">a[<span class="number">1</span>][<span class="number">2</span>] = <span class="string">'X'</span>    <span class="comment"># 2行3列填充'X'</span></span><br><span class="line"><span class="comment"># [['_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', 'X'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_']]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [[<span class="string">'_'</span>] * <span class="number">3</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>)]</span><br><span class="line"><span class="comment"># [['_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_']]</span></span><br><span class="line"></span><br><span class="line">a[<span class="number">1</span>][<span class="number">2</span>] = <span class="string">'X'</span>    <span class="comment"># 2行3列填充'X'</span></span><br><span class="line"><span class="comment"># [['_', '_', '_'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', 'X'],</span></span><br><span class="line"><span class="comment">#  ['_', '_', '_']]</span></span><br></pre></td></tr></table></figure>
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>通过<code>[[&#39;_&#39;] * 4 ] * 4</code>生成的列表中的元素其实是指向同一列表的三个list，他们的id是相同的</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">10</span>]: a = [[<span class="string">'_'</span>] * <span class="number">4</span> ] * <span class="number">4</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: id(a[<span class="number">0</span>])</span><br><span class="line">Out[<span class="number">11</span>]: <span class="number">67027552</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">12</span>]: id(a[<span class="number">1</span>])</span><br><span class="line">Out[<span class="number">12</span>]: <span class="number">67027552</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">13</span>]: id(a[<span class="number">2</span>])</span><br><span class="line">Out[<span class="number">13</span>]: <span class="number">67027552</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">14</span>]: id(a[<span class="number">3</span>])</span><br><span class="line">Out[<span class="number">14</span>]: <span class="number">67027552</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">10</span>]: a = [[<span class="string">'_'</span>] * <span class="number">4</span> ] * <span class="number">4</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: id(a[<span class="number">0</span>])</span><br><span class="line">Out[<span class="number">11</span>]: <span class="number">67027552</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">12</span>]: id(a[<span class="number">1</span>])</span><br><span class="line">Out[<span class="number">12</span>]: <span class="number">67027552</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">13</span>]: id(a[<span class="number">2</span>])</span><br><span class="line">Out[<span class="number">13</span>]: <span class="number">67027552</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">14</span>]: id(a[<span class="number">3</span>])</span><br><span class="line">Out[<span class="number">14</span>]: <span class="number">67027552</span></span><br></pre></td></tr></table></figure>
 <p>所以出现了上面的情况，为其中一个元素赋值的时候同时改变了其他的list。</p>
 <p>当然也可以用以下方法生成list：</p>
 <pre><code class="python">b = []
@@ -535,7 +532,6 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
@@ -560,7 +556,7 @@
                 alt="ΩmegaPhi"/>
             
               <p class="site-author-name" itemprop="name">ΩmegaPhi</p>
-              <p class="site-description motion-element" itemprop="description">记录&成长</p>
+              <div class="site-description motion-element" itemprop="description">记录&成长</div>
           </div>
 
           
@@ -570,7 +566,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -582,7 +578,11 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
                     
                     
                       
@@ -591,7 +591,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -606,6 +608,8 @@
                 RSS
               </a>
             </div>
+          
+
           
 
           
@@ -672,6 +676,7 @@
 
     </div>
   </aside>
+  
 
 
         
@@ -680,9 +685,9 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ΩmegaPhi</span>
 
@@ -700,38 +705,12 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.0.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
 
 
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-user"></i>
-    </span>
-    <span class="site-uv" title="总访客量">
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="post-meta-divider">|</span>
-  
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
-    </span>
-    <span class="site-pv" title="总访问量">
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
-
 
 
 
@@ -789,6 +768,8 @@
 
 
 
+  
+
 
 
   
@@ -800,36 +781,44 @@
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-
   
-
-
-  <script src="/js/src/utils.js?v=7.0.0"></script>
-
-  <script src="/js/src/motion.js?v=7.0.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
-
-
-
-  
-  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
-<script src="/js/src/post-details.js?v=7.0.0"></script>
-
+  <script src="/lib/reading_progress/reading_progress.js"></script>
 
 
   
 
 
-  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
 
 
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
 
   
   
@@ -852,11 +841,12 @@
     notify: false,
     appId: 'XyUBPWqP1ewlFStMpIh2JJRL-gzGzoHsz',
     appKey: '22AxxKrxhkKs49yoX9tJ7psB',
-    placeholder: '...',
+    placeholder: '请留言交流吧...',
     avatar: 'mm',
     meta: guest,
     pageSize: '10' || 10,
-    visitor: false
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn'
   });
 </script>
 
@@ -880,21 +870,8 @@
   
 
   
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; 
-      }
-      else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-      }
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
 
+  
 
   
 

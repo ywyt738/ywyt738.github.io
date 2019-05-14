@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ywyt738.github.io/"/>
-  <updated>2019-05-06T07:06:47.246Z</updated>
+  <updated>2019-05-14T06:49:27.770Z</updated>
   <id>https://ywyt738.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>四招美化click命令行应用</title>
+    <link href="https://ywyt738.github.io/2019/05/13/%E5%9B%9B%E6%8B%9B%E7%BE%8E%E5%8C%96click%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8/"/>
+    <id>https://ywyt738.github.io/2019/05/13/四招美化click命令行应用/</id>
+    <published>2019-05-13T06:26:25.000Z</published>
+    <updated>2019-05-14T06:49:27.770Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;python在实现命令行工具的方面有很多有优势的库，其中&lt;a href=&quot;https://click.palletsprojects.com/en/7.x/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Click&lt;/a&gt;是其中的佼佼者。&lt;/p&gt;
+&lt;p&gt;今天不是&lt;code&gt;Click&lt;/code&gt;的教学，参考官方文档就可以很快写出一个不错的命令行应用。今天我们来做四件事提高我们命令行应用的B格：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;长时间任务的等待效果&lt;/li&gt;
+&lt;li&gt;命令行帮助的文档的美化&lt;/li&gt;
+&lt;li&gt;错误命令猜测提示&lt;/li&gt;
+&lt;li&gt;日志级别的控制&lt;/li&gt;&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://ywyt738.github.io/tags/python/"/>
+    
+      <category term="cli" scheme="https://ywyt738.github.io/tags/cli/"/>
+    
+  </entry>
   
   <entry>
     <title>写一个python装饰器</title>
@@ -27,7 +53,7 @@
     
       &lt;h1 id=&quot;装饰器的用途&quot;&gt;&lt;a href=&quot;#装饰器的用途&quot; class=&quot;headerlink&quot; title=&quot;装饰器的用途&quot;&gt;&lt;/a&gt;装饰器的用途&lt;/h1&gt;&lt;p&gt;装饰器的主要作用在于对现有方法、函数进行一定的扩展，简单的说就是在原有函数、方法调用前、后去添加一些额外的功能。&lt;br&gt;至于更高层次的用法，我们就不深讨论了。今天只说一些简单的。&lt;/p&gt;
 &lt;h1 id=&quot;结论&quot;&gt;&lt;a href=&quot;#结论&quot; class=&quot;headerlink&quot; title=&quot;结论&quot;&gt;&lt;/a&gt;结论&lt;/h1&gt;&lt;p&gt;先出结论，装饰器的写法是有一定规律的，可以按照以下 &lt;em&gt;公式&lt;/em&gt; 来套用。&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; functools &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; wraps&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;decorate&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(func)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;    @wraps(func)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(*args, **kwargs)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;# func调用前扩展功能&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;# ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        _r = func(*args, **kwargs)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;# func调用后扩展功能...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;# ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; _r&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; wrapper&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; functools &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; wraps&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;decorate&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(func)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;    @wraps(func)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(*args, **kwargs)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;# func调用前扩展功能&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;# ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        _r = func(*args, **kwargs)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;# func调用后扩展功能...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;# ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; _r&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; wrapper&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;以上就是一个不带参数装饰器的套路写法。&lt;br&gt;&lt;/p&gt;
     
     </summary>
@@ -64,7 +90,7 @@
     <link href="https://ywyt738.github.io/2018/12/19/LVM%E9%80%BB%E8%BE%91%E5%8D%B7%E7%AE%A1%E7%90%86%E5%99%A8/"/>
     <id>https://ywyt738.github.io/2018/12/19/LVM逻辑卷管理器/</id>
     <published>2018-12-19T02:16:14.000Z</published>
-    <updated>2018-12-19T02:34:19.574Z</updated>
+    <updated>2019-05-14T01:33:08.861Z</updated>
     
     <summary type="html">
     

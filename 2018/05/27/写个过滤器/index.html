@@ -30,7 +30,7 @@
 
 
 
-
+  <meta name="google-site-verification" content="vP9aas7emOLDFrM8GHbGmqOxMIUf9rVEDByE0wujlS4"/>
 
 
 
@@ -48,19 +48,19 @@
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
 
-<link rel="stylesheet" href="/css/main.css?v=7.0.0"/>
+<link rel="stylesheet" href="/css/main.css?v=7.1.1"/>
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
 
 
 
@@ -73,8 +73,10 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    version: '7.0.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -96,18 +98,18 @@
 
 
 
-  <meta name="description" content="类的继承写个过滤器基类12345class Filter:    def __init__(self):        self._filter_list = []    def filter(self, seq):        return [i for i in seq if not i in self._fil">
+  <meta name="description" content="类的继承写个过滤器基类class Filter:    def __init__(self):        self._filter_list = []    def filter(self, seq):        return [i for i in seq if not i in self._filter_l">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="写个过滤器">
 <meta property="og:url" content="https://ywyt738.github.io/2018/05/27/写个过滤器/index.html">
 <meta property="og:site_name" content="ΩmegaPhi&#39;s Blog">
-<meta property="og:description" content="类的继承写个过滤器基类12345class Filter:    def __init__(self):        self._filter_list = []    def filter(self, seq):        return [i for i in seq if not i in self._filter_list] 这个类没有办法过滤任何东西，下面来做一个能用的过滤器。 制造">
+<meta property="og:description" content="类的继承写个过滤器基类class Filter:    def __init__(self):        self._filter_list = []    def filter(self, seq):        return [i for i in seq if not i in self._filter_list] 这个类没有办法过滤任何东西，下面来做一个能用的过滤器。 制造一个有用的">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-05-27T09:10:41.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="写个过滤器">
-<meta name="twitter:description" content="类的继承写个过滤器基类12345class Filter:    def __init__(self):        self._filter_list = []    def filter(self, seq):        return [i for i in seq if not i in self._filter_list] 这个类没有办法过滤任何东西，下面来做一个能用的过滤器。 制造">
+<meta name="twitter:description" content="类的继承写个过滤器基类class Filter:    def __init__(self):        self._filter_list = []    def filter(self, seq):        return [i for i in seq if not i in self._filter_list] 这个类没有办法过滤任何东西，下面来做一个能用的过滤器。 制造一个有用的">
 
 
 
@@ -115,7 +117,8 @@
 
 
 
-
+  
+  
   <link rel="canonical" href="https://ywyt738.github.io/2018/05/27/写个过滤器/"/>
 
 
@@ -319,6 +322,8 @@
   
 
   
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -402,14 +407,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
 
           
 
@@ -428,10 +425,10 @@
       
 
       
-        <h2 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h2><h3 id="写个过滤器基类"><a href="#写个过滤器基类" class="headerlink" title="写个过滤器基类"></a>写个过滤器基类</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Filter</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._filter_list = []</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">filter</span><span class="params">(self, seq)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> [i <span class="keyword">for</span> i <span class="keyword">in</span> seq <span class="keyword">if</span> <span class="keyword">not</span> i <span class="keyword">in</span> self._filter_list]</span><br></pre></td></tr></table></figure>
+        <h2 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h2><h3 id="写个过滤器基类"><a href="#写个过滤器基类" class="headerlink" title="写个过滤器基类"></a>写个过滤器基类</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Filter</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._filter_list = []</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">filter</span><span class="params">(self, seq)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> [i <span class="keyword">for</span> i <span class="keyword">in</span> seq <span class="keyword">if</span> <span class="keyword">not</span> i <span class="keyword">in</span> self._filter_list]</span><br></pre></td></tr></table></figure>
 <p>这个类没有办法过滤任何东西，下面来做一个能用的过滤器。</p>
 <h3 id="制造一个有用的过滤器"><a href="#制造一个有用的过滤器" class="headerlink" title="制造一个有用的过滤器"></a>制造一个有用的过滤器</h3><p>新建一个类继承于刚刚的<code>Filter</code>，在<code>__init__</code>方法中加入过滤列表。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dollar_Filter</span><span class="params">(Filter)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._filter_list = [<span class="string">'$'</span>]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;dollar_filter = Dollar_Filter()</span><br><span class="line">&gt;&gt;&gt;dollar_filter.filter([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">'asdf'</span>, <span class="string">'$'</span>, <span class="string">'sx'</span>, <span class="string">'%'</span>, <span class="string">'ff'</span>, <span class="string">'$'</span>])</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">'asdf'</span>, <span class="string">'$'</span>, <span class="string">'sx'</span>, <span class="string">'%'</span>, <span class="string">'ff'</span>, <span class="string">'$'</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dollar_Filter</span><span class="params">(Filter)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._filter_list = [<span class="string">'$'</span>]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;dollar_filter = Dollar_Filter()</span><br><span class="line">&gt;&gt;&gt;dollar_filter.filter([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">'asdf'</span>, <span class="string">'$'</span>, <span class="string">'sx'</span>, <span class="string">'%'</span>, <span class="string">'ff'</span>, <span class="string">'$'</span>])</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">'asdf'</span>, <span class="string">'$'</span>, <span class="string">'sx'</span>, <span class="string">'%'</span>, <span class="string">'ff'</span>, <span class="string">'$'</span>]</span><br></pre></td></tr></table></figure>
 <h2 id="抽象思维"><a href="#抽象思维" class="headerlink" title="抽象思维"></a>抽象思维</h2><p>在面向对象和函数编程中抽象思维十分重要，它能让代码复用性更高、耦合度更低。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>上述例子来自于<a href="https://www.amazon.cn/dp/B00KAFX65Q/ref=sr_1_2?ie=UTF8&amp;qid=1527411915&amp;sr=8-2&amp;keywords=python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B" target="_blank" rel="noopener">《Python基础教程（第2版）》</a></p>
 
@@ -525,7 +522,6 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
@@ -550,7 +546,7 @@
                 alt="ΩmegaPhi"/>
             
               <p class="site-author-name" itemprop="name">ΩmegaPhi</p>
-              <p class="site-description motion-element" itemprop="description">记录&成长</p>
+              <div class="site-description motion-element" itemprop="description">记录&成长</div>
           </div>
 
           
@@ -560,7 +556,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -572,7 +568,11 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
                     
                     
                       
@@ -581,7 +581,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -596,6 +598,8 @@
                 RSS
               </a>
             </div>
+          
+
           
 
           
@@ -662,6 +666,7 @@
 
     </div>
   </aside>
+  
 
 
         
@@ -670,9 +675,9 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ΩmegaPhi</span>
 
@@ -690,38 +695,12 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.0.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
 
 
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-user"></i>
-    </span>
-    <span class="site-uv" title="总访客量">
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="post-meta-divider">|</span>
-  
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
-    </span>
-    <span class="site-pv" title="总访问量">
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
-
 
 
 
@@ -779,6 +758,8 @@
 
 
 
+  
+
 
 
   
@@ -790,36 +771,44 @@
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-
   
-
-
-  <script src="/js/src/utils.js?v=7.0.0"></script>
-
-  <script src="/js/src/motion.js?v=7.0.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
-
-
-
-  
-  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
-<script src="/js/src/post-details.js?v=7.0.0"></script>
-
+  <script src="/lib/reading_progress/reading_progress.js"></script>
 
 
   
 
 
-  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
 
 
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
 
   
   
@@ -842,11 +831,12 @@
     notify: false,
     appId: 'XyUBPWqP1ewlFStMpIh2JJRL-gzGzoHsz',
     appKey: '22AxxKrxhkKs49yoX9tJ7psB',
-    placeholder: '...',
+    placeholder: '请留言交流吧...',
     avatar: 'mm',
     meta: guest,
     pageSize: '10' || 10,
-    visitor: false
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn'
   });
 </script>
 
@@ -870,21 +860,8 @@
   
 
   
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; 
-      }
-      else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-      }
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
 
+  
 
   
 
