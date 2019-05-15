@@ -1,7 +1,7 @@
-https://ywyt738.github.io/2019/05/13/四招美化click命令行应用/
-https://ywyt738.github.io/2019/04/28/写一个python装饰器/
-https://ywyt738.github.io/2019/03/04/JupyterWebsocketError/
-https://ywyt738.github.io/2018/12/19/LVM逻辑卷管理器/
-https://ywyt738.github.io/2018/05/27/写个过滤器/
-https://ywyt738.github.io/2018/01/30/Python嵌套列表初始化/
-https://ywyt738.github.io/2018/01/10/skill-stack/
+https://www.omegaphi.me/2019/05/13/四招美化click命令行应用/
+https://www.omegaphi.me/2019/04/28/写一个python装饰器/
+https://www.omegaphi.me/2019/03/04/JupyterWebsocketError/
+https://www.omegaphi.me/2018/12/19/LVM逻辑卷管理器/
+https://www.omegaphi.me/2018/05/27/写个过滤器/
+https://www.omegaphi.me/2018/01/30/Python嵌套列表初始化/
+https://www.omegaphi.me/2018/01/10/skill-stack/

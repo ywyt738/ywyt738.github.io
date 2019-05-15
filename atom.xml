@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://ywyt738.github.io/"/>
+  <link href="https://www.omegaphi.me/"/>
   <updated>2019-05-14T06:49:27.770Z</updated>
-  <id>https://ywyt738.github.io/</id>
+  <id>https://www.omegaphi.me/</id>
   
   <author>
     <name>ΩmegaPhi</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>四招美化click命令行应用</title>
-    <link href="https://ywyt738.github.io/2019/05/13/%E5%9B%9B%E6%8B%9B%E7%BE%8E%E5%8C%96click%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8/"/>
-    <id>https://ywyt738.github.io/2019/05/13/四招美化click命令行应用/</id>
+    <link href="https://www.omegaphi.me/2019/05/13/%E5%9B%9B%E6%8B%9B%E7%BE%8E%E5%8C%96click%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E7%94%A8/"/>
+    <id>https://www.omegaphi.me/2019/05/13/四招美化click命令行应用/</id>
     <published>2019-05-13T06:26:25.000Z</published>
     <updated>2019-05-14T06:49:27.770Z</updated>
     
@@ -36,16 +36,16 @@
     </summary>
     
     
-      <category term="python" scheme="https://ywyt738.github.io/tags/python/"/>
+      <category term="python" scheme="https://www.omegaphi.me/tags/python/"/>
     
-      <category term="cli" scheme="https://ywyt738.github.io/tags/cli/"/>
+      <category term="cli" scheme="https://www.omegaphi.me/tags/cli/"/>
     
   </entry>
   
   <entry>
     <title>写一个python装饰器</title>
-    <link href="https://ywyt738.github.io/2019/04/28/%E5%86%99%E4%B8%80%E4%B8%AApython%E8%A3%85%E9%A5%B0%E5%99%A8/"/>
-    <id>https://ywyt738.github.io/2019/04/28/写一个python装饰器/</id>
+    <link href="https://www.omegaphi.me/2019/04/28/%E5%86%99%E4%B8%80%E4%B8%AApython%E8%A3%85%E9%A5%B0%E5%99%A8/"/>
+    <id>https://www.omegaphi.me/2019/04/28/写一个python装饰器/</id>
     <published>2019-04-28T08:37:31.000Z</published>
     <updated>2019-05-06T07:06:47.246Z</updated>
     
@@ -59,14 +59,14 @@
     </summary>
     
     
-      <category term="python" scheme="https://ywyt738.github.io/tags/python/"/>
+      <category term="python" scheme="https://www.omegaphi.me/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>JupyterWebsocketError</title>
-    <link href="https://ywyt738.github.io/2019/03/04/JupyterWebsocketError/"/>
-    <id>https://ywyt738.github.io/2019/03/04/JupyterWebsocketError/</id>
+    <link href="https://www.omegaphi.me/2019/03/04/JupyterWebsocketError/"/>
+    <id>https://www.omegaphi.me/2019/03/04/JupyterWebsocketError/</id>
     <published>2019-03-04T06:51:19.000Z</published>
     <updated>2019-03-04T06:57:18.346Z</updated>
     
@@ -87,8 +87,8 @@
   
   <entry>
     <title>LVM逻辑卷管理器</title>
-    <link href="https://ywyt738.github.io/2018/12/19/LVM%E9%80%BB%E8%BE%91%E5%8D%B7%E7%AE%A1%E7%90%86%E5%99%A8/"/>
-    <id>https://ywyt738.github.io/2018/12/19/LVM逻辑卷管理器/</id>
+    <link href="https://www.omegaphi.me/2018/12/19/LVM%E9%80%BB%E8%BE%91%E5%8D%B7%E7%AE%A1%E7%90%86%E5%99%A8/"/>
+    <id>https://www.omegaphi.me/2018/12/19/LVM逻辑卷管理器/</id>
     <published>2018-12-19T02:16:14.000Z</published>
     <updated>2019-05-14T01:33:08.861Z</updated>
     
@@ -109,8 +109,8 @@
   
   <entry>
     <title>写个过滤器</title>
-    <link href="https://ywyt738.github.io/2018/05/27/%E5%86%99%E4%B8%AA%E8%BF%87%E6%BB%A4%E5%99%A8/"/>
-    <id>https://ywyt738.github.io/2018/05/27/写个过滤器/</id>
+    <link href="https://www.omegaphi.me/2018/05/27/%E5%86%99%E4%B8%AA%E8%BF%87%E6%BB%A4%E5%99%A8/"/>
+    <id>https://www.omegaphi.me/2018/05/27/写个过滤器/</id>
     <published>2018-05-27T08:31:32.000Z</published>
     <updated>2018-05-27T09:10:41.292Z</updated>
     
@@ -127,14 +127,14 @@
     </summary>
     
     
-      <category term="python" scheme="https://ywyt738.github.io/tags/python/"/>
+      <category term="python" scheme="https://www.omegaphi.me/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>Python嵌套列表初始化</title>
-    <link href="https://ywyt738.github.io/2018/01/30/Python%E5%B5%8C%E5%A5%97%E5%88%97%E8%A1%A8%E5%88%9D%E5%A7%8B%E5%8C%96/"/>
-    <id>https://ywyt738.github.io/2018/01/30/Python嵌套列表初始化/</id>
+    <link href="https://www.omegaphi.me/2018/01/30/Python%E5%B5%8C%E5%A5%97%E5%88%97%E8%A1%A8%E5%88%9D%E5%A7%8B%E5%8C%96/"/>
+    <id>https://www.omegaphi.me/2018/01/30/Python嵌套列表初始化/</id>
     <published>2018-01-30T01:42:11.000Z</published>
     <updated>2018-01-30T05:49:43.769Z</updated>
     
@@ -151,16 +151,16 @@
     </summary>
     
     
-      <category term="python" scheme="https://ywyt738.github.io/tags/python/"/>
+      <category term="python" scheme="https://www.omegaphi.me/tags/python/"/>
     
-      <category term="数据格式" scheme="https://ywyt738.github.io/tags/%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/"/>
+      <category term="数据格式" scheme="https://www.omegaphi.me/tags/%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
     <title>skill_stack</title>
-    <link href="https://ywyt738.github.io/2018/01/10/skill-stack/"/>
-    <id>https://ywyt738.github.io/2018/01/10/skill-stack/</id>
+    <link href="https://www.omegaphi.me/2018/01/10/skill-stack/"/>
+    <id>https://www.omegaphi.me/2018/01/10/skill-stack/</id>
     <published>2018-01-10T13:40:57.000Z</published>
     <updated>2018-01-10T14:26:36.130Z</updated>
     
@@ -178,9 +178,9 @@
     </summary>
     
     
-      <category term="python" scheme="https://ywyt738.github.io/tags/python/"/>
+      <category term="python" scheme="https://www.omegaphi.me/tags/python/"/>
     
-      <category term="DevOps" scheme="https://ywyt738.github.io/tags/DevOps/"/>
+      <category term="DevOps" scheme="https://www.omegaphi.me/tags/DevOps/"/>
     
   </entry>
   
